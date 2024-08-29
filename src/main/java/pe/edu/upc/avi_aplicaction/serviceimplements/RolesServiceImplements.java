@@ -11,10 +11,37 @@ import java.util.List;
 
 public class RolesServiceImplements implements IRolesService {
     @Autowired
-    private IRolesRepository vR;
+    private IRolesRepository rR;
 
     @Override
     public List<roles> list(){
-        return vR.findAll();
+
+        return rR.findAll();
+    }
+
+    @Override
+    public void insert(roles rol) {
+        rR.save(rol);
+
+    }
+
+    @Override
+    public void update(roles rol) {
+        rR.save(rol);
+    }
+
+    @Override
+    public void delete(int id_Rol) {
+        rR.deleteById(id_Rol);
+    }
+
+    @Override
+    public roles listId(int id_Rol) {
+        return rR.findById(id_Rol).orElse(new roles());
+    }
+
+    @Override
+    public List<roles> buscar(String rol) {
+        return rR.buscarRol(rol);
     }
 }

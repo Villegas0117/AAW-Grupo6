@@ -45,5 +45,9 @@ public class ConjuntosServiceImplements implements IConjuntosService {
 
     }
 
+    @Override
+    public List<Conjuntos> buscarUltimosModificados() {
+        return cR.buscarUltimosModificados();
+    }
 
 }

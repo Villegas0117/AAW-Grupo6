@@ -45,17 +45,25 @@ public class ConjuntosController {
         cs.update(c);
     }
 
-    @GetMapping("/buscar")
+    @GetMapping("/buscarConjunto")
     public List<ConjuntosDTO> buscar(@RequestParam String nombreConjunto) {
         return cs.buscar(nombreConjunto).stream().map(x->{
             ModelMapper m=new ModelMapper();
             return m.map(x,ConjuntosDTO.class);
         }).collect(Collectors.toList());
     }
-
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") Integer id) {
         cs.delete(id);
     }
 
+
+    //QUERY PARA LISTAR LOS ULTIMOS MODIFICADOS
+    @GetMapping("/buscarUltimosModificados")
+    public List<ConjuntosDTO> buscarUltimosModificados() {
+        return cs.buscarUltimosModificados().stream().map(x -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(x, ConjuntosDTO.class);
+        }).collect(Collectors.toList());
+    }
 }

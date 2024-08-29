@@ -13,4 +13,5 @@ public interface IConjuntosService {
     public List<Conjuntos> buscar(String nombre_Conjunto);
     public void delete(int id_Conjuntos);
 
+    List<Conjuntos> buscarUltimosModificados();
 }
