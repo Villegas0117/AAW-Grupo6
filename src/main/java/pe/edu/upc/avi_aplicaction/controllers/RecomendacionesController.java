@@ -3,10 +3,8 @@ package pe.edu.upc.avi_aplicaction.controllers;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import pe.edu.upc.avi_aplicaction.dtos.PrendasDTO;
 import pe.edu.upc.avi_aplicaction.dtos.RecomendacionesDTO;
 import pe.edu.upc.avi_aplicaction.dtos.UsersDTO;
-import pe.edu.upc.avi_aplicaction.entities.Prendas;
 import pe.edu.upc.avi_aplicaction.entities.Recomendaciones;
 import pe.edu.upc.avi_aplicaction.serviceinterfaces.IRecomendacionesService;
 

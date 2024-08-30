@@ -2,7 +2,6 @@ package pe.edu.upc.avi_aplicaction.serviceimplements;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pe.edu.upc.avi_aplicaction.entities.Prendas;
 import pe.edu.upc.avi_aplicaction.entities.Recomendaciones;
 import pe.edu.upc.avi_aplicaction.repositories.IRecomendacionesRepository;
 import pe.edu.upc.avi_aplicaction.serviceinterfaces.IRecomendacionesService;
