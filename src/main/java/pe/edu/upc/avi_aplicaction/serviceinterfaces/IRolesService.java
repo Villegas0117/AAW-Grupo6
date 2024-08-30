@@ -5,9 +5,4 @@ import java.util.List;
 
 public interface IRolesService {
     public List<roles> list();
-    public void insert(roles role);
-    public void update(roles role);
-    public void delete(int id_Rol);
-    public roles listId(int id_Rol);
-    public List<roles> buscar(String rol);
 }
