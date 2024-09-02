@@ -21,6 +21,18 @@ public class Conjuntos {
     @Column(name = "fecha_Modificacion", nullable = false)
     private LocalDate fecha_Modificacion;
 
+    public Conjuntos() {
+    }
+
+    public Conjuntos(int id_Conjunto, int id_Usuario, String nombre_Conjunto, int id_Galeria, LocalDate fecha_Creacion, LocalDate fecha_Modificacion) {
+        this.id_Conjunto = id_Conjunto;
+        this.id_Usuario = id_Usuario;
+        this.nombre_Conjunto = nombre_Conjunto;
+        this.id_Galeria = id_Galeria;
+        this.fecha_Creacion = fecha_Creacion;
+        this.fecha_Modificacion = fecha_Modificacion;
+    }
+
     public int getId_Conjunto() {
         return id_Conjunto;
     }

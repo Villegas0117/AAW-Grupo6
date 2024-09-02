@@ -74,6 +74,19 @@ public class Users {
         return fecha_registro;
     }
 
+    public Users(int id_usuario, String nombre_usuario, String email, String contrasena, int id_Rol, LocalDate fecha_registro, LocalDate fecha_modificacion) {
+        this.id_usuario = id_usuario;
+        this.nombre_usuario = nombre_usuario;
+        this.email = email;
+        this.contrasena = contrasena;
+        this.id_Rol = id_Rol;
+        this.fecha_registro = fecha_registro;
+        this.fecha_modificacion = fecha_modificacion;
+    }
+
+    public Users() {
+    }
+
     public void setFecha_registro(LocalDate fecha_registro) {
         this.fecha_registro = fecha_registro;
     }
