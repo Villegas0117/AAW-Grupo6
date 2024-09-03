@@ -44,7 +44,7 @@ public class RecomendacionesController {
     }
 
     @PutMapping
-    public void modificar(@RequestBody UsersDTO dto){
+    public void modificar(@RequestBody RecomendacionesDTO dto){// Corrección RecomendacionesDTO - UsersDTO
         ModelMapper m=new ModelMapper();
         Recomendaciones r = m.map(dto, Recomendaciones.class);
         rS.updateRecomendacion(r);
