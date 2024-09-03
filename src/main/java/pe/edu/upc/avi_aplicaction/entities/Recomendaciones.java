@@ -1,7 +1,6 @@
 package pe.edu.upc.avi_aplicaction.entities;
 
 import jakarta.persistence.*;
-
 import java.time.LocalDate;
 
 @Entity
@@ -11,8 +10,9 @@ public class Recomendaciones {
     @GeneratedValue(strategy = GenerationType.IDENTITY )
     private int id_Recomendacion;
 
-    @Column(name = "id_Usuario",nullable = false)
-    private int id_Usuario;
+    @ManyToOne
+    @JoinColumn(name = "id_usuario")
+    private Users id_Usuario;
 
     @Column(name = "id_Tendencia",nullable = false)
     private int id_Tendencia;
@@ -26,6 +26,18 @@ public class Recomendaciones {
     @Column(name = "fecha_modificacion", nullable = false)
     private LocalDate fecha_modificacion;
 
+    public Recomendaciones() {
+    }
+
+    public Recomendaciones(int id_Recomendacion, Users id_Usuario, int id_Tendencia, String descripcion, LocalDate fecha_Creacion, LocalDate fecha_modificacion) {
+        this.id_Recomendacion = id_Recomendacion;
+        this.id_Usuario = id_Usuario;
+        this.id_Tendencia = id_Tendencia;
+        this.descripcion = descripcion;
+        this.fecha_Creacion = fecha_Creacion;
+        this.fecha_modificacion = fecha_modificacion;
+    }
+
     public int getId_Recomendacion() {
         return id_Recomendacion;
     }
@@ -34,11 +46,11 @@ public class Recomendaciones {
         this.id_Recomendacion = id_Recomendacion;
     }
 
-    public int getId_Usuario() {
+    public Users getId_Usuario() {
         return id_Usuario;
     }
 
-    public void setId_Usuario(int id_Usuario) {
+    public void setId_Usuario(Users id_Usuario) {
         this.id_Usuario = id_Usuario;
     }
 

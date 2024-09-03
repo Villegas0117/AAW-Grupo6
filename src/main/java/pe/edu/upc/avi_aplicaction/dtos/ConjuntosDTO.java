@@ -1,13 +1,17 @@
 package pe.edu.upc.avi_aplicaction.dtos;
 
 
+import pe.edu.upc.avi_aplicaction.entities.Users;
+
 import java.time.LocalDate;
 
 public class ConjuntosDTO {
     private int id_Conjunto;
-    private int id_Usuario;//FK
+    private Users id_Usuario;//FK
     private String nombre_Conjunto;
     private int id_Galeria;//FK
+
+
     private LocalDate fecha_Creacion;
     private LocalDate fecha_Modificacion;
 
@@ -19,13 +23,6 @@ public class ConjuntosDTO {
         this.id_Conjunto = id_Conjunto;
     }
 
-    public int getId_Usuario() {
-        return id_Usuario;
-    }
-
-    public void setId_Usuario(int id_Usuario) {
-        this.id_Usuario = id_Usuario;
-    }
 
     public String getNombre_Conjunto() {
         return nombre_Conjunto;
@@ -57,5 +54,13 @@ public class ConjuntosDTO {
 
     public void setFecha_Modificacion(LocalDate fecha_Modificacion) {
         this.fecha_Modificacion = fecha_Modificacion;
+    }
+
+    public Users getId_Usuario() {
+        return id_Usuario;
+    }
+
+    public void setId_Usuario(Users id_Usuario) {
+        this.id_Usuario = id_Usuario;
     }
 }

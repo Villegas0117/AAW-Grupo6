@@ -11,8 +11,9 @@ public class Galerias {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int idGaleria;
 
-    @Column(name = "id_usuario")
-    private int idUsuario;
+    @ManyToOne
+    @JoinColumn(name = "id_usuario")
+    private Users idUsuario;
 
     @Column(name = "nombre_galeria")
     private String nombreGaleria;
@@ -25,7 +26,11 @@ public class Galerias {
 
     //Constructor con asignacion de valores a los atributos
 
-    public Galerias(int idGaleria, int idUsuario, String nombreGaleria, LocalDate fechaCreacion, LocalDate fechaModificacion) {
+
+    public Galerias() {
+    }
+
+    public Galerias(int idGaleria, Users idUsuario, String nombreGaleria, LocalDate fechaCreacion, LocalDate fechaModificacion) {
         this.idGaleria = idGaleria;
         this.idUsuario = idUsuario;
         this.nombreGaleria = nombreGaleria;
@@ -33,9 +38,13 @@ public class Galerias {
         this.fechaModificacion = fechaModificacion;
     }
 
-    public Galerias() {
+    public Users getIdUsuario() {
+        return idUsuario;
     }
-    //Propiedades
+
+    public void setIdUsuario(Users idUsuario) {
+        this.idUsuario = idUsuario;
+    }
 
     public LocalDate getFechaModificacion() {
         return fechaModificacion;
@@ -61,13 +70,9 @@ public class Galerias {
         this.nombreGaleria = nombreGaleria;
     }
 
-    public int getIdUsuario() {
-        return idUsuario;
-    }
 
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
-    }
+
+
 
     public int getIdGaleria() {
         return idGaleria;

@@ -1,11 +1,13 @@
 package pe.edu.upc.avi_aplicaction.dtos;
 
+import pe.edu.upc.avi_aplicaction.entities.Users;
+
 import java.time.LocalDate;
 
 public class PrendasDTO {
 
     private int id_prenda;
-    private int id_usuario;
+    private Users id_usuario;
     private String nombre_prenda;
     private String tipo_prenda;
     private String imagen_url;
@@ -20,11 +22,11 @@ public class PrendasDTO {
         this.id_prenda = id_prenda;
     }
 
-    public int getId_usuario() {
+    public Users getId_usuario() {
         return id_usuario;
     }
 
-    public void setId_usuario(int id_usuario) {
+    public void setId_usuario(Users id_usuario) {
         this.id_usuario = id_usuario;
     }
 

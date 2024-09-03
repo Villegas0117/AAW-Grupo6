@@ -1,11 +1,13 @@
 package pe.edu.upc.avi_aplicaction.dtos;
 
 
+import pe.edu.upc.avi_aplicaction.entities.Users;
+
 import java.time.LocalDate;
 
 public class RecomendacionesDTO {
     private int id_Recomendacion;
-    private int id_Usuario;//FK
+    private Users id_Usuario;//FK
     private int id_Tendencia;//FK
     private String descripcion  ;
     private LocalDate fecha_creacion;
@@ -19,11 +21,11 @@ public class RecomendacionesDTO {
         this.id_Recomendacion = id_Recomendacion;
     }
 
-    public int getId_Usuario() {
+    public Users getId_Usuario() {
         return id_Usuario;
     }
 
-    public void setId_Usuario(int id_Usuario) {
+    public void setId_Usuario(Users id_Usuario) {
         this.id_Usuario = id_Usuario;
     }
 
