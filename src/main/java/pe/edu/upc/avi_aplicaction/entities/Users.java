@@ -21,8 +21,10 @@ public class Users {
     @Column(name = "contrasena",nullable = false)
     private String contrasena;
 
-    @Column(name = "rol")
-    private int  id_Rol;//FK
+
+    @ManyToOne
+    @JoinColumn(name = "id_Rol")
+    private roles id_Rol;//FK
 
     @Column(name = "fecha_creacion")
     private LocalDate fecha_registro;
@@ -61,18 +63,21 @@ public class Users {
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
     }
-
-    public int getId_Rol() {
+    public roles getId_Rol() {
         return id_Rol;
     }
 
-    public void setId_Rol(int id_Rol) {
+    public void setId_Rol(roles id_Rol) {
         this.id_Rol = id_Rol;
     }
+
+
 
     public LocalDate getFecha_registro() {
         return fecha_registro;
     }
+
+
 
     public void setFecha_registro(LocalDate fecha_registro) {
         this.fecha_registro = fecha_registro;
@@ -83,6 +88,19 @@ public class Users {
     }
 
     public void setFecha_modificacion(LocalDate fecha_modificacion) {
+        this.fecha_modificacion = fecha_modificacion;
+    }
+
+    public Users() {
+    }
+
+    public Users(int id_usuario, String nombre_usuario, String email, String contrasena, roles id_Rol, LocalDate fecha_registro, LocalDate fecha_modificacion) {
+        this.id_usuario = id_usuario;
+        this.nombre_usuario = nombre_usuario;
+        this.email = email;
+        this.contrasena = contrasena;
+        this.id_Rol = id_Rol;
+        this.fecha_registro = fecha_registro;
         this.fecha_modificacion = fecha_modificacion;
     }
 }

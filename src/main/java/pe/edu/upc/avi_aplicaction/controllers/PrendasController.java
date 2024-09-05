@@ -47,7 +47,7 @@ public class PrendasController {
     }
 
     @PutMapping
-    public void modificar(@RequestBody UsersDTO dto){
+    public void modificar(@RequestBody PrendasDTO dto){
         ModelMapper m=new ModelMapper();
         Prendas p = m.map(dto, Prendas.class);
         pR.updatePrenda(p);

@@ -1,9 +1,6 @@
 package pe.edu.upc.avi_aplicaction.serviceinterfaces;
 
 import pe.edu.upc.avi_aplicaction.entities.Prendas;
-import pe.edu.upc.avi_aplicaction.entities.Users;
-
-import java.time.LocalDate;
 import java.util.List;
 
 public interface IPrendasService {
