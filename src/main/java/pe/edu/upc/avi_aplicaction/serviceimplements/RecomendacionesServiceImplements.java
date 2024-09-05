@@ -38,4 +38,16 @@ public class RecomendacionesServiceImplements implements IRecomendacionesService
     public void updateRecomendacion(Recomendaciones recomendaciones) {
         rR.save(recomendaciones);
     }
+
+    @Override
+    public List<Recomendaciones> getRecomendacionesByUserId(int idUsuario) {
+        return rR.BuscarPorUsuario(idUsuario);
+    }
+
+    @Override
+    public List<Recomendaciones> getRecomendacionesByTrendId(int idTendencia) {
+        return rR.BuscarPorTendencia(idTendencia);
+    }
+
+
 }
