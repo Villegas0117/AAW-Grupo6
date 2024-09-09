@@ -11,9 +11,6 @@ public class Galerias {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int idGaleria;
 
-    @Column(name = "id_usuario")
-    private int idUsuario;
-
     @Column(name = "nombre_galeria")
     private String nombreGaleria;
 
@@ -23,26 +20,40 @@ public class Galerias {
     @Column(name = "fecha_modificacion")
     private LocalDate fechaModificacion;
 
+    @ManyToOne
+    @JoinColumn(name = "id_usuario")
+    private Users idUsuario;
+
     //Constructor con asignacion de valores a los atributos
 
-    public Galerias(int idGaleria, int idUsuario, String nombreGaleria, LocalDate fechaCreacion, LocalDate fechaModificacion) {
+
+    public Galerias(int idGaleria, Users idUsuario, LocalDate fechaModificacion, LocalDate fechaCreacion, String nombreGaleria) {
         this.idGaleria = idGaleria;
         this.idUsuario = idUsuario;
-        this.nombreGaleria = nombreGaleria;
-        this.fechaCreacion = fechaCreacion;
         this.fechaModificacion = fechaModificacion;
+        this.fechaCreacion = fechaCreacion;
+        this.nombreGaleria = nombreGaleria;
     }
 
     public Galerias() {
     }
     //Propiedades
 
-    public LocalDate getFechaModificacion() {
-        return fechaModificacion;
+
+    public int getIdGaleria() {
+        return idGaleria;
     }
 
-    public void setFechaModificacion(LocalDate fechaModificacion) {
-        this.fechaModificacion = fechaModificacion;
+    public void setIdGaleria(int idGaleria) {
+        this.idGaleria = idGaleria;
+    }
+
+    public Users getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(Users idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public LocalDate getFechaCreacion() {
@@ -61,19 +72,11 @@ public class Galerias {
         this.nombreGaleria = nombreGaleria;
     }
 
-    public int getIdUsuario() {
-        return idUsuario;
+    public LocalDate getFechaModificacion() {
+        return fechaModificacion;
     }
 
-    public void setIdUsuario(int idUsuario) {
-        this.idUsuario = idUsuario;
-    }
-
-    public int getIdGaleria() {
-        return idGaleria;
-    }
-
-    public void setIdGaleria(int idGaleria) {
-        this.idGaleria = idGaleria;
+    public void setFechaModificacion(LocalDate fechaModificacion) {
+        this.fechaModificacion = fechaModificacion;
     }
 }

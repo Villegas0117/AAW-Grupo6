@@ -3,13 +3,13 @@ package pe.edu.upc.avi_aplicaction.controllers;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import pe.edu.upc.avi_aplicaction.dtos.GaleriasDTO;
-import pe.edu.upc.avi_aplicaction.dtos.PrendasDTO;
-import pe.edu.upc.avi_aplicaction.dtos.UsersDTO;
+import pe.edu.upc.avi_aplicaction.dtos.*;
 import pe.edu.upc.avi_aplicaction.entities.Galerias;
 import pe.edu.upc.avi_aplicaction.entities.Prendas;
 import pe.edu.upc.avi_aplicaction.serviceinterfaces.IGaleriasService;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -50,6 +50,32 @@ public class GaleriasController {
         ModelMapper m=new ModelMapper();
         Galerias p = m.map(dto, Galerias.class);
         galeriasService.updateGalerias(p);
+    }
+
+    @GetMapping("/galeríaReciente")
+    public List<GaleriaUserDTO> galeriareciente(){
+        List<String[]> lista=galeriasService.GaleriaMasReciente();
+        List<GaleriaUserDTO>listaDTO=new ArrayList<>();
+        for(String[] columna:lista){
+           GaleriaUserDTO dto=new GaleriaUserDTO();
+            dto.setNombre_usuario(columna[0]);
+            dto.setNombreGaleria(columna[1]);
+            dto.setFechaCreacion(LocalDate.parse(columna[2]));
+            listaDTO.add(dto);
+        }
+        return listaDTO;
+    }
+    @GetMapping("/galeríaPorUsuario")
+    public List<GaleriaTotalUsuarioDTO> galeriaporusuario(){
+        List<String[]> lista=galeriasService.GaleriaPorUsuario();
+        List<GaleriaTotalUsuarioDTO>listaDTO=new ArrayList<>();
+        for(String[] columna:lista){
+            GaleriaTotalUsuarioDTO dto=new GaleriaTotalUsuarioDTO();
+            dto.setNombre_usuario(columna[0]);
+            dto.setTotal_galerias(Integer.parseInt(columna[1]));
+            listaDTO.add(dto);
+        }
+        return listaDTO;
     }
 
 }
