@@ -42,11 +42,13 @@ public class GaleriasServiceImplements implements IGaleriasService {
 
     @Override
     public List<String[]> GaleriaMasReciente() {
-        return galeriasRepository.GaleriaMasReciente();
+        return List.of();
     }
 
     @Override
     public List<String[]> GaleriaPorUsuario() {
-        return galeriasRepository.GaleriaPorUsuario();
+        return List.of();
     }
+
+
 }
