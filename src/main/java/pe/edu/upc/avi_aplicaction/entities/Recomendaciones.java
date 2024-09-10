@@ -1,6 +1,7 @@
 package pe.edu.upc.avi_aplicaction.entities;
 
 import jakarta.persistence.*;
+
 import java.time.LocalDate;
 
 @Entity
@@ -12,10 +13,11 @@ public class Recomendaciones {
 
     @ManyToOne
     @JoinColumn(name = "id_usuario")
-    private Users id_Usuario;
+    private Users id_Usuario;//FK
 
-    @Column(name = "id_Tendencia",nullable = false)
-    private int id_Tendencia;
+    @ManyToOne
+    @JoinColumn(name = "id_tendencia")
+    private Tendencia id_Tendencia;//FK
 
     @Column(name = "descripcion", nullable = false, length = 200)
     private String descripcion;
@@ -26,16 +28,17 @@ public class Recomendaciones {
     @Column(name = "fecha_modificacion", nullable = false)
     private LocalDate fecha_modificacion;
 
+
     public Recomendaciones() {
     }
 
-    public Recomendaciones(int id_Recomendacion, Users id_Usuario, int id_Tendencia, String descripcion, LocalDate fecha_Creacion, LocalDate fecha_modificacion) {
+    public Recomendaciones(int id_Recomendacion, Tendencia id_Tendencia, Users id_Usuario, String descripcion, LocalDate fecha_modificacion, LocalDate fecha_Creacion) {
         this.id_Recomendacion = id_Recomendacion;
-        this.id_Usuario = id_Usuario;
         this.id_Tendencia = id_Tendencia;
+        this.id_Usuario = id_Usuario;
         this.descripcion = descripcion;
-        this.fecha_Creacion = fecha_Creacion;
         this.fecha_modificacion = fecha_modificacion;
+        this.fecha_Creacion = fecha_Creacion;
     }
 
     public int getId_Recomendacion() {
@@ -54,11 +57,11 @@ public class Recomendaciones {
         this.id_Usuario = id_Usuario;
     }
 
-    public int getId_Tendencia() {
+    public Tendencia getId_Tendencia() {
         return id_Tendencia;
     }
 
-    public void setId_Tendencia(int id_Tendencia) {
+    public void setId_Tendencia(Tendencia id_Tendencia) {
         this.id_Tendencia = id_Tendencia;
     }
 

@@ -6,10 +6,10 @@ import java.time.LocalDate;
 
 public class GaleriasDTO {
     private int idGaleria;
-    private Users idUsuario;
     private String nombreGaleria;
     private LocalDate fechaCreacion;
     private LocalDate fechaModificacion;
+    private Users idUsuario;
 
     public int getIdGaleria() {
         return idGaleria;
@@ -18,7 +18,6 @@ public class GaleriasDTO {
     public void setIdGaleria(int idGaleria) {
         this.idGaleria = idGaleria;
     }
-
 
     public String getNombreGaleria() {
         return nombreGaleria;

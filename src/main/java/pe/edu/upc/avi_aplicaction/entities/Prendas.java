@@ -14,7 +14,7 @@ public class Prendas {
 
     @ManyToOne
     @JoinColumn(name = "id_usuario")
-    private Users id_usuario;
+    private Users id_usuario;//FK
 
     @Column(name="nombre_prenda",nullable = false,length = 100)
     private String nombre_prenda;
@@ -31,8 +31,6 @@ public class Prendas {
     @Column(name = "fecha_modificacion",nullable = false)
     private LocalDate fecha_modificacion;
 
-    public Prendas() {
-    }
 
     public Prendas(int id_prenda, Users id_usuario, String nombre_prenda, String tipo_prenda, String imagen_url, LocalDate fecha_creacion, LocalDate fecha_modificacion) {
         this.id_prenda = id_prenda;
@@ -42,6 +40,9 @@ public class Prendas {
         this.imagen_url = imagen_url;
         this.fecha_creacion = fecha_creacion;
         this.fecha_modificacion = fecha_modificacion;
+    }
+
+    public Prendas() {
     }
 
     public int getId_prenda() {

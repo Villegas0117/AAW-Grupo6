@@ -52,30 +52,5 @@ public class GaleriasController {
         galeriasService.updateGalerias(p);
     }
 
-    @GetMapping("/galeríaReciente")
-    public List<GaleriaUserDTO> galeriareciente(){
-        List<String[]> lista=galeriasService.GaleriaMasReciente();
-        List<GaleriaUserDTO>listaDTO=new ArrayList<>();
-        for(String[] columna:lista){
-           GaleriaUserDTO dto=new GaleriaUserDTO();
-            dto.setNombre_usuario(columna[0]);
-            dto.setNombreGaleria(columna[1]);
-            dto.setFechaCreacion(LocalDate.parse(columna[2]));
-            listaDTO.add(dto);
-        }
-        return listaDTO;
-    }
-    @GetMapping("/galeríaPorUsuario")
-    public List<GaleriaTotalUsuarioDTO> galeriaporusuario(){
-        List<String[]> lista=galeriasService.GaleriaPorUsuario();
-        List<GaleriaTotalUsuarioDTO>listaDTO=new ArrayList<>();
-        for(String[] columna:lista){
-            GaleriaTotalUsuarioDTO dto=new GaleriaTotalUsuarioDTO();
-            dto.setNombre_usuario(columna[0]);
-            dto.setTotal_galerias(Integer.parseInt(columna[1]));
-            listaDTO.add(dto);
-        }
-        return listaDTO;
-    }
 
 }

@@ -40,13 +40,5 @@ public class GaleriasServiceImplements implements IGaleriasService {
         galeriasRepository.save(Galerias);
     }
 
-    @Override
-    public List<String[]> GaleriaMasReciente() {
-        return galeriasRepository.GaleriaMasReciente();
-    }
 
-    @Override
-    public List<String[]> GaleriaPorUsuario() {
-        return galeriasRepository.GaleriaPorUsuario();
-    }
 }
