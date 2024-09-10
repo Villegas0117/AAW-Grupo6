@@ -11,10 +11,10 @@ public class Recomendaciones {
     @GeneratedValue(strategy = GenerationType.IDENTITY )
     private int id_Recomendacion;
 
-    @Column(name = "id_Usuario",nullable = false)
+    @Column(name =  "id_usuario" , nullable = false)
     private int id_Usuario;
 
-    @Column(name = "id_Tendencia",nullable = false)
+    @Column(name =  "id_Tendencia" , nullable = false)
     private int id_Tendencia;
 
     @Column(name = "descripcion", nullable = false, length = 200)
@@ -25,6 +25,18 @@ public class Recomendaciones {
 
     @Column(name = "fecha_modificacion", nullable = false)
     private LocalDate fecha_modificacion;
+
+    public Recomendaciones(){
+    }
+
+    public Recomendaciones(int id_Recomendacion, int id_Usuario, int id_Tendencia, String descripcion, LocalDate fecha_Creacion, LocalDate fecha_modificacion) {
+        this.id_Recomendacion = id_Recomendacion;
+        this.id_Usuario = id_Usuario;
+        this.id_Tendencia = id_Tendencia;
+        this.descripcion = descripcion;
+        this.fecha_Creacion = fecha_Creacion;
+        this.fecha_modificacion = fecha_modificacion;
+    }
 
     public int getId_Recomendacion() {
         return id_Recomendacion;

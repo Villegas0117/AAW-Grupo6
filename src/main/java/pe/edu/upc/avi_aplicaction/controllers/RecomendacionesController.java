@@ -4,10 +4,14 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.avi_aplicaction.dtos.RecomendacionesDTO;
-import pe.edu.upc.avi_aplicaction.dtos.UsersDTO;
+import pe.edu.upc.avi_aplicaction.dtos.RecomendacionesPorIDTendenciaDTO;
+import pe.edu.upc.avi_aplicaction.dtos.RecomendacionesPorIDusuarioDTO;
+import pe.edu.upc.avi_aplicaction.dtos.RecomendacionesPorIntervaloDTO;
 import pe.edu.upc.avi_aplicaction.entities.Recomendaciones;
 import pe.edu.upc.avi_aplicaction.serviceinterfaces.IRecomendacionesService;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -44,9 +48,63 @@ public class RecomendacionesController {
     }
 
     @PutMapping
-    public void modificar(@RequestBody UsersDTO dto){
+    public void modificar(@RequestBody RecomendacionesDTO dto){
         ModelMapper m=new ModelMapper();
         Recomendaciones r = m.map(dto, Recomendaciones.class);
         rS.updateRecomendacion(r);
+    }
+
+    @GetMapping("/BuscarRecomendacionesPorIdUsuario")
+    public List<RecomendacionesDTO> BuscarPorUsuario(@RequestParam int idUsuario) {
+        return rS.getRecomendacionesByUserId(idUsuario).stream().map(x->{
+            ModelMapper m=new ModelMapper();
+            return m.map(x, RecomendacionesDTO.class);
+        }).collect(Collectors.toList());
+    }
+
+    @GetMapping("/BuscarRecomendacionesPorIdTendencia")
+    public List<RecomendacionesDTO> BuscarPorTendencia(@RequestParam int idTendencia) {
+        return rS.getRecomendacionesByTrendId(idTendencia).stream().map(x->{
+            ModelMapper m=new ModelMapper();
+            return m.map(x, RecomendacionesDTO.class);
+        }).collect(Collectors.toList());
+    }
+
+    @GetMapping("/TotalRecomendacionsPorIDusuario")
+    public List<RecomendacionesPorIDusuarioDTO> cantidad(){
+        List<String[]> lista=rS.obtenerTotalRecomendacionesPorIDUsuario();
+        List<RecomendacionesPorIDusuarioDTO> listaDTO=new ArrayList<>();
+        for(String[] columna:lista){
+            RecomendacionesPorIDusuarioDTO dto=new RecomendacionesPorIDusuarioDTO();
+            dto.setId_usuario(Integer.parseInt(columna[0]));
+            dto.setTotal_recomendaciones((long) Integer.parseInt(columna[1]));
+            listaDTO.add(dto);
+        }
+        return listaDTO;
+    }
+
+    @GetMapping("/TotalRecomendacionsPorIDTendencia")
+    public List<RecomendacionesPorIDTendenciaDTO> cantidad1(){
+        List<String[]> lista=rS.obtenerTotalRecomendacionesPorIDTendencia();
+        List<RecomendacionesPorIDTendenciaDTO> listaDTO=new ArrayList<>();
+        for(String[] columna:lista){
+            RecomendacionesPorIDTendenciaDTO dto=new RecomendacionesPorIDTendenciaDTO();
+            dto.setId_tendencias(Integer.parseInt(columna[0]));
+            dto.setTotal_recomendaciones((long) Integer.parseInt(columna[1]));
+            listaDTO.add(dto);
+        }
+        return listaDTO;
+    }
+
+    @GetMapping("/TotalRecomendacionesPorIntervalo")
+    public RecomendacionesPorIntervaloDTO obtenerPorIntervalo(@RequestParam LocalDate fechaInicio, @RequestParam LocalDate fechaFin) {
+        // Obtén el total de recomendaciones del servicio
+        Long totalRecomendaciones = rS.obtenerTotalRecomendacionesPorIntervalo(fechaInicio, fechaFin);
+        // Crea y configura el DTO
+        RecomendacionesPorIntervaloDTO dto = new RecomendacionesPorIntervaloDTO();
+        dto.setFechaInicio(fechaInicio);
+        dto.setFechaFin(fechaFin);
+        dto.setTotalRecomendaciones(totalRecomendaciones);
+        return dto;
     }
 }

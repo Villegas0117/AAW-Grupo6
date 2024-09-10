@@ -6,6 +6,7 @@ import pe.edu.upc.avi_aplicaction.entities.Recomendaciones;
 import pe.edu.upc.avi_aplicaction.repositories.IRecomendacionesRepository;
 import pe.edu.upc.avi_aplicaction.serviceinterfaces.IRecomendacionesService;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -16,7 +17,7 @@ public class RecomendacionesServiceImplements implements IRecomendacionesService
 
     @Override
     public void insertar_Recomendacion(Recomendaciones recomendaciones) {
-        rR.save(recomendaciones);//por medio de la instancia pR se llama el metodo save que guarda nuevas prendas
+        rR.save(recomendaciones);//por medio de la instancia rR se llama el metodo save que guarda nuevas prendas
     }
 
     @Override
@@ -38,4 +39,31 @@ public class RecomendacionesServiceImplements implements IRecomendacionesService
     public void updateRecomendacion(Recomendaciones recomendaciones) {
         rR.save(recomendaciones);
     }
+
+    @Override
+    public List<Recomendaciones> getRecomendacionesByUserId(int idUsuario) {
+        return rR.BuscarPorUsuario(idUsuario);
+    }
+
+    @Override
+    public List<Recomendaciones> getRecomendacionesByTrendId(int idTendencia) {
+        return rR.BuscarPorTendencia(idTendencia);
+    }
+
+    @Override
+    public List<String[]> obtenerTotalRecomendacionesPorIDUsuario() {
+        return rR.findTotalRecomendacionesPorUsuario();
+    }
+
+    @Override
+    public List<String[]> obtenerTotalRecomendacionesPorIDTendencia() {
+        return rR.findTotalRecomendacionesPorTendencia();
+    }
+
+    @Override
+    public Long obtenerTotalRecomendacionesPorIntervalo(LocalDate fechaInicio, LocalDate fechaFin) {
+        return rR.findTotalRecomendacionesPorIntervalo(fechaInicio, fechaFin);
+    }
+
+
 }

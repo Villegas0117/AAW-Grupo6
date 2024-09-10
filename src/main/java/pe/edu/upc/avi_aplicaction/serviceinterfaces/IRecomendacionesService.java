@@ -2,6 +2,7 @@ package pe.edu.upc.avi_aplicaction.serviceinterfaces;
 
 import pe.edu.upc.avi_aplicaction.entities.Recomendaciones;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface IRecomendacionesService {
@@ -19,5 +20,15 @@ public interface IRecomendacionesService {
 
     //actualizar una recomendacion
     public void updateRecomendacion(Recomendaciones recomendaciones);
+
+    public List<Recomendaciones> getRecomendacionesByUserId(int idUsuario);
+
+    public List<Recomendaciones> getRecomendacionesByTrendId(int idTendencia);
+
+    public List<String[]> obtenerTotalRecomendacionesPorIDUsuario();
+
+    public List<String[]> obtenerTotalRecomendacionesPorIDTendencia();
+
+    public Long obtenerTotalRecomendacionesPorIntervalo(LocalDate fechaInicio, LocalDate fechaFin);
 
 }

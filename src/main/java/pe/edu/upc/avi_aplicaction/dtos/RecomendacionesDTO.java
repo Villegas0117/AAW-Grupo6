@@ -1,6 +1,5 @@
 package pe.edu.upc.avi_aplicaction.dtos;
 
-
 import java.time.LocalDate;
 
 public class RecomendacionesDTO {
