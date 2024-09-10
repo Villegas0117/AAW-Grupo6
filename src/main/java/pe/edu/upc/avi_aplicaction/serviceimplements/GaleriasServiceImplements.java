@@ -39,4 +39,14 @@ public class GaleriasServiceImplements implements IGaleriasService {
     public void updateGalerias(Galerias Galerias) {
         galeriasRepository.save(Galerias);
     }
+
+    @Override
+    public List<String[]> GaleriaMasReciente() {
+        return galeriasRepository.GaleriaMasReciente();
+    }
+
+    @Override
+    public List<String[]> GaleriaPorUsuario() {
+        return galeriasRepository.GaleriaPorUsuario();
+    }
 }

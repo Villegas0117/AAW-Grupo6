@@ -1,12 +1,10 @@
 package pe.edu.upc.avi_aplicaction.dtos;
 
-import pe.edu.upc.avi_aplicaction.entities.Users;
-
 import java.time.LocalDate;
 
 public class GaleriasDTO {
     private int idGaleria;
-    private Users idUsuario;
+    private int idUsuario;
     private String nombreGaleria;
     private LocalDate fechaCreacion;
     private LocalDate fechaModificacion;
@@ -19,6 +17,13 @@ public class GaleriasDTO {
         this.idGaleria = idGaleria;
     }
 
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
+    }
 
     public String getNombreGaleria() {
         return nombreGaleria;
@@ -42,13 +47,5 @@ public class GaleriasDTO {
 
     public void setFechaModificacion(LocalDate fechaModificacion) {
         this.fechaModificacion = fechaModificacion;
-    }
-
-    public Users getIdUsuario() {
-        return idUsuario;
-    }
-
-    public void setIdUsuario(Users idUsuario) {
-        this.idUsuario = idUsuario;
     }
 }

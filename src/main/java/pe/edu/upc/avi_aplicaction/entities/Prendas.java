@@ -12,9 +12,21 @@ public class Prendas {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_prenda;
 
-    @ManyToOne
-    @JoinColumn(name = "id_usuario")
-    private Users id_usuario;
+    @Column(name = "id_usuario",nullable = false)
+    private int id_usuario;
+
+    public Prendas(int id_prenda, int id_usuario, String nombre_prenda, String tipo_prenda, String imagen_url, LocalDate fecha_creacion, LocalDate fecha_modificacion) {
+        this.id_prenda = id_prenda;
+        this.id_usuario = id_usuario;
+        this.nombre_prenda = nombre_prenda;
+        this.tipo_prenda = tipo_prenda;
+        this.imagen_url = imagen_url;
+        this.fecha_creacion = fecha_creacion;
+        this.fecha_modificacion = fecha_modificacion;
+    }
+
+    public Prendas() {
+    }
 
     @Column(name="nombre_prenda",nullable = false,length = 100)
     private String nombre_prenda;
@@ -31,18 +43,6 @@ public class Prendas {
     @Column(name = "fecha_modificacion",nullable = false)
     private LocalDate fecha_modificacion;
 
-    public Prendas() {
-    }
-
-    public Prendas(int id_prenda, Users id_usuario, String nombre_prenda, String tipo_prenda, String imagen_url, LocalDate fecha_creacion, LocalDate fecha_modificacion) {
-        this.id_prenda = id_prenda;
-        this.id_usuario = id_usuario;
-        this.nombre_prenda = nombre_prenda;
-        this.tipo_prenda = tipo_prenda;
-        this.imagen_url = imagen_url;
-        this.fecha_creacion = fecha_creacion;
-        this.fecha_modificacion = fecha_modificacion;
-    }
 
     public int getId_prenda() {
         return id_prenda;
@@ -52,11 +52,11 @@ public class Prendas {
         this.id_prenda = id_prenda;
     }
 
-    public Users getId_usuario() {
+    public int getId_usuario() {
         return id_usuario;
     }
 
-    public void setId_usuario(Users id_usuario) {
+    public void setId_usuario(int id_usuario) {
         this.id_usuario = id_usuario;
     }
 

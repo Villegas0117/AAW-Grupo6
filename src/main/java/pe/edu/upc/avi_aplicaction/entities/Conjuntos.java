@@ -10,11 +10,8 @@ public class Conjuntos {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_Conjunto;
-
-    @ManyToOne
-    @JoinColumn(name = "id_usuario")
-    private Users id_Usuario;//FK
-
+    @Column(name = "id_Usuario", nullable = false)
+    private int id_Usuario;//FK
     @Column(name = "nombre_Conjunto", nullable = false, length = 100)
     private String nombre_Conjunto;
     @Column(name = "id_Galeria", nullable = false)
@@ -27,7 +24,7 @@ public class Conjuntos {
     public Conjuntos() {
     }
 
-    public Conjuntos(int id_Conjunto, Users id_Usuario, String nombre_Conjunto, int id_Galeria, LocalDate fecha_Creacion, LocalDate fecha_Modificacion) {
+    public Conjuntos(int id_Conjunto, int id_Usuario, String nombre_Conjunto, int id_Galeria, LocalDate fecha_Creacion, LocalDate fecha_Modificacion) {
         this.id_Conjunto = id_Conjunto;
         this.id_Usuario = id_Usuario;
         this.nombre_Conjunto = nombre_Conjunto;
@@ -44,11 +41,11 @@ public class Conjuntos {
         this.id_Conjunto = id_Conjunto;
     }
 
-    public Users getId_Usuario() {
+    public int getId_Usuario() {
         return id_Usuario;
     }
 
-    public void setId_Usuario(Users id_Usuario) {
+    public void setId_Usuario(int id_Usuario) {
         this.id_Usuario = id_Usuario;
     }
 
