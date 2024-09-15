@@ -16,4 +16,5 @@ public interface IGaleriasService {
 
     public void updateGalerias(Galerias Galerias);
 
+    
 }

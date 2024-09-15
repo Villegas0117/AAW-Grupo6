@@ -3,13 +3,13 @@ package pe.edu.upc.avi_aplicaction.controllers;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import pe.edu.upc.avi_aplicaction.dtos.GaleriasDTO;
-import pe.edu.upc.avi_aplicaction.dtos.PrendasDTO;
-import pe.edu.upc.avi_aplicaction.dtos.UsersDTO;
+import pe.edu.upc.avi_aplicaction.dtos.*;
 import pe.edu.upc.avi_aplicaction.entities.Galerias;
 import pe.edu.upc.avi_aplicaction.entities.Prendas;
 import pe.edu.upc.avi_aplicaction.serviceinterfaces.IGaleriasService;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -51,5 +51,6 @@ public class GaleriasController {
         Galerias p = m.map(dto, Galerias.class);
         galeriasService.updateGalerias(p);
     }
+
 
 }

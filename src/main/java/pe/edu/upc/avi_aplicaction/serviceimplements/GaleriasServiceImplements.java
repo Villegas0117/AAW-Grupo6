@@ -39,4 +39,6 @@ public class GaleriasServiceImplements implements IGaleriasService {
     public void updateGalerias(Galerias Galerias) {
         galeriasRepository.save(Galerias);
     }
+
+
 }

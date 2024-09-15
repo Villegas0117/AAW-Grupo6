@@ -10,12 +10,14 @@ public class Conjuntos {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_Conjunto;
-    @Column(name = "id_Usuario", nullable = false)
-    private int id_Usuario;//FK
+    @ManyToOne
+    @JoinColumn(name = "id_usuario")
+    private Users id_Usuario;//FK
     @Column(name = "nombre_Conjunto", nullable = false, length = 100)
     private String nombre_Conjunto;
-    @Column(name = "id_Galeria", nullable = false)
-    private int id_Galeria;//FK
+    @ManyToOne
+    @JoinColumn(name = "id_galeria")
+    private Galerias id_Galeria;//FK
     @Column(name = "fecha_Creacion", nullable = false)
     private LocalDate fecha_Creacion;
     @Column(name = "fecha_Modificacion", nullable = false)
@@ -24,7 +26,7 @@ public class Conjuntos {
     public Conjuntos() {
     }
 
-    public Conjuntos(int id_Conjunto, int id_Usuario, String nombre_Conjunto, int id_Galeria, LocalDate fecha_Creacion, LocalDate fecha_Modificacion) {
+    public Conjuntos(int id_Conjunto, Users id_Usuario, String nombre_Conjunto, Galerias id_Galeria, LocalDate fecha_Creacion, LocalDate fecha_Modificacion) {
         this.id_Conjunto = id_Conjunto;
         this.id_Usuario = id_Usuario;
         this.nombre_Conjunto = nombre_Conjunto;
@@ -41,11 +43,11 @@ public class Conjuntos {
         this.id_Conjunto = id_Conjunto;
     }
 
-    public int getId_Usuario() {
+    public Users getId_Usuario() {
         return id_Usuario;
     }
 
-    public void setId_Usuario(int id_Usuario) {
+    public void setId_Usuario(Users id_Usuario) {
         this.id_Usuario = id_Usuario;
     }
 
@@ -57,11 +59,11 @@ public class Conjuntos {
         this.nombre_Conjunto = nombre_Conjunto;
     }
 
-    public int getId_Galeria() {
+    public Galerias getId_Galeria() {
         return id_Galeria;
     }
 
-    public void setId_Galeria(int id_Galeria) {
+    public void setId_Galeria(Galerias id_Galeria) {
         this.id_Galeria = id_Galeria;
     }
 
@@ -81,3 +83,4 @@ public class Conjuntos {
         this.fecha_Modificacion = fecha_Modificacion;
     }
 }
+
