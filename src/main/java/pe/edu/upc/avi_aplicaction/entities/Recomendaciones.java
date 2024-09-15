@@ -11,11 +11,13 @@ public class Recomendaciones {
     @GeneratedValue(strategy = GenerationType.IDENTITY )
     private int id_Recomendacion;
 
-    @Column(name =  "id_usuario" , nullable = false)
-    private int id_Usuario;
+    @ManyToOne
+    @JoinColumn(name =  "id_usuario" , nullable = false)
+    private Users id_Usuario;
 
-    @Column(name =  "id_Tendencia" , nullable = false)
-    private int id_Tendencia;
+    @ManyToOne
+    @JoinColumn(name =  "id_Tendencia" , nullable = false)
+    private Tendencia  id_Tendencia;
 
     @Column(name = "descripcion", nullable = false, length = 200)
     private String descripcion;
@@ -29,7 +31,7 @@ public class Recomendaciones {
     public Recomendaciones(){
     }
 
-    public Recomendaciones(int id_Recomendacion, int id_Usuario, int id_Tendencia, String descripcion, LocalDate fecha_Creacion, LocalDate fecha_modificacion) {
+    public Recomendaciones(int id_Recomendacion, Users id_Usuario, Tendencia id_Tendencia, String descripcion, LocalDate fecha_Creacion, LocalDate fecha_modificacion) {
         this.id_Recomendacion = id_Recomendacion;
         this.id_Usuario = id_Usuario;
         this.id_Tendencia = id_Tendencia;
@@ -46,19 +48,19 @@ public class Recomendaciones {
         this.id_Recomendacion = id_Recomendacion;
     }
 
-    public int getId_Usuario() {
+    public Users getId_Usuario() {
         return id_Usuario;
     }
 
-    public void setId_Usuario(int id_Usuario) {
+    public void setId_Usuario(Users id_Usuario) {
         this.id_Usuario = id_Usuario;
     }
 
-    public int getId_Tendencia() {
+    public Tendencia getId_Tendencia() {
         return id_Tendencia;
     }
 
-    public void setId_Tendencia(int id_Tendencia) {
+    public void setId_Tendencia(Tendencia id_Tendencia) {
         this.id_Tendencia = id_Tendencia;
     }
 

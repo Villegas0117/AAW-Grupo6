@@ -31,4 +31,8 @@ public interface IRecomendacionesService {
 
     public Long obtenerTotalRecomendacionesPorIntervalo(LocalDate fechaInicio, LocalDate fechaFin);
 
+    public List<String[]> obtenerTopNUsuariosConMasRecomendaciones(int topN);
+
+    public List<String[]> obtenerTopTendenciasConMasRecomendaciones(int topN);
+
 }

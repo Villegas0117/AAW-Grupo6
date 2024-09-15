@@ -1,11 +1,14 @@
 package pe.edu.upc.avi_aplicaction.dtos;
 
+import pe.edu.upc.avi_aplicaction.entities.Tendencia;
+import pe.edu.upc.avi_aplicaction.entities.Users;
+
 import java.time.LocalDate;
 
 public class RecomendacionesDTO {
     private int id_Recomendacion;
-    private int id_Usuario;//FK
-    private int id_Tendencia;//FK
+    private Users id_Usuario;//FK
+    private Tendencia id_Tendencia;//FK
     private String descripcion  ;
     private LocalDate fecha_creacion;
     private LocalDate fecha_modificacion;
@@ -18,19 +21,19 @@ public class RecomendacionesDTO {
         this.id_Recomendacion = id_Recomendacion;
     }
 
-    public int getId_Usuario() {
+    public Users getId_Usuario() {
         return id_Usuario;
     }
 
-    public void setId_Usuario(int id_Usuario) {
+    public void setId_Usuario(Users id_Usuario) {
         this.id_Usuario = id_Usuario;
     }
 
-    public int getId_Tendencia() {
+    public Tendencia getId_Tendencia() {
         return id_Tendencia;
     }
 
-    public void setId_Tendencia(int id_Tendencia) {
+    public void setId_Tendencia(Tendencia id_Tendencia) {
         this.id_Tendencia = id_Tendencia;
     }
 

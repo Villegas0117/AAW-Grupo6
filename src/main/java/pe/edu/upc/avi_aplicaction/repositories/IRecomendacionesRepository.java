@@ -30,4 +30,20 @@ public interface IRecomendacionesRepository extends JpaRepository<Recomendacione
     @Query(value = "SELECT COUNT(*) FROM recomendaciones WHERE fecha_modificacion BETWEEN :fechaInicio AND :fechaFin", nativeQuery = true)
     Long findTotalRecomendacionesPorIntervalo(@Param("fechaInicio") LocalDate fechaInicio, @Param("fechaFin") LocalDate fechaFin);
 
+    @Query(value = "SELECT u.id_usuario, u.nombre_usuario, COUNT(r.id_Recomendacion) AS total_recomendaciones " +
+            "FROM recomendaciones r " +
+            "JOIN usuarios u ON r.id_usuario = u.id_usuario " +
+            "GROUP BY u.id_usuario, u.nombre_usuario " +
+            "ORDER BY total_recomendaciones DESC " +
+            "LIMIT :topN", nativeQuery = true)
+    List<String[]> findTopNUsuariosConMasRecomendaciones(@Param("topN") int topN);
+
+    @Query(value = "SELECT t.id_Tendencia, t.nombre_tendencia, COUNT(r.id_Recomendacion) AS total_recomendaciones " +
+            "FROM recomendaciones r " +
+            "JOIN tendencia t ON r.id_Tendencia = t.id_Tendencia " +
+            "GROUP BY t.id_Tendencia, t.nombre_tendencia " +
+            "ORDER BY total_recomendaciones DESC " +
+            "LIMIT :topN", nativeQuery = true)
+    List<String[]> findTopNTendenciasConMasRecomendaciones(@Param("topN") int topN);
+
 }

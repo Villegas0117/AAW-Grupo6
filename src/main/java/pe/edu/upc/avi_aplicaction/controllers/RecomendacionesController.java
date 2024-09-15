@@ -3,10 +3,7 @@ package pe.edu.upc.avi_aplicaction.controllers;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import pe.edu.upc.avi_aplicaction.dtos.RecomendacionesDTO;
-import pe.edu.upc.avi_aplicaction.dtos.RecomendacionesPorIDTendenciaDTO;
-import pe.edu.upc.avi_aplicaction.dtos.RecomendacionesPorIDusuarioDTO;
-import pe.edu.upc.avi_aplicaction.dtos.RecomendacionesPorIntervaloDTO;
+import pe.edu.upc.avi_aplicaction.dtos.*;
 import pe.edu.upc.avi_aplicaction.entities.Recomendaciones;
 import pe.edu.upc.avi_aplicaction.serviceinterfaces.IRecomendacionesService;
 
@@ -106,5 +103,33 @@ public class RecomendacionesController {
         dto.setFechaFin(fechaFin);
         dto.setTotalRecomendaciones(totalRecomendaciones);
         return dto;
+    }
+
+    @GetMapping("/TopUsuariosConMasRecomendaciones")
+    public List<ReUsuariosConMasRecomendacionesDTO> obtenerTopUsuarios(@RequestParam int topN) {
+        List<String[]> lista = rS.obtenerTopNUsuariosConMasRecomendaciones(topN);
+        List<ReUsuariosConMasRecomendacionesDTO> listaDTO = new ArrayList<>();
+        for (String[] columna : lista) {
+            ReUsuariosConMasRecomendacionesDTO dto = new ReUsuariosConMasRecomendacionesDTO();
+            dto.setId_usuario(Integer.parseInt(columna[0]));
+            dto.setNombre_usuario(columna[1]);
+            dto.setTotal_recomendaciones((long) Integer.parseInt(columna[2]));
+            listaDTO.add(dto);
+        }
+        return listaDTO;
+    }
+
+    @GetMapping("/TopTendenciasConMasRecomendaciones")
+    public List<ReTendenciasConMasRecomendacionesDTO> obtenerTopTendencias(@RequestParam int topN) {
+        List<String[]> lista = rS.obtenerTopTendenciasConMasRecomendaciones(topN);
+        List<ReTendenciasConMasRecomendacionesDTO> listaDTO = new ArrayList<>();
+        for (String[] columna : lista) {
+            ReTendenciasConMasRecomendacionesDTO dto = new ReTendenciasConMasRecomendacionesDTO();
+            dto.setId_Tendencia(Integer.parseInt(columna[0]));
+            dto.setNombre_tendencia(columna[1]);
+            dto.setTotal_recomendaciones((long) Integer.parseInt(columna[2]));
+            listaDTO.add(dto);
+        }
+        return listaDTO;
     }
 }

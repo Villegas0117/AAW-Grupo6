@@ -65,5 +65,15 @@ public class RecomendacionesServiceImplements implements IRecomendacionesService
         return rR.findTotalRecomendacionesPorIntervalo(fechaInicio, fechaFin);
     }
 
+    @Override
+    public List<String[]> obtenerTopNUsuariosConMasRecomendaciones(int topN) {
+        return rR.findTopNUsuariosConMasRecomendaciones(topN);
+    }
+
+    @Override
+    public List<String[]> obtenerTopTendenciasConMasRecomendaciones(int topN) {
+        return rR.findTopNTendenciasConMasRecomendaciones(topN);
+    }
+
 
 }
