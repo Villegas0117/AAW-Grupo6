@@ -4,6 +4,7 @@ import org.apache.catalina.User;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.Banner;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.avi_aplicaction.dtos.UsersDTO;
 import pe.edu.upc.avi_aplicaction.entities.Users;
@@ -18,13 +19,17 @@ public class UsersController {
     @Autowired
     private IUsersService uR;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @PostMapping
     public void registrar(@RequestBody UsersDTO dto) {
         ModelMapper m = new ModelMapper();
         Users u = m.map(dto, Users.class);
+        String encodedPassword = passwordEncoder.encode(u.getPassword());
+        u.setPassword(encodedPassword);
         uR.insertUser(u);
     }
-
 
 
     @GetMapping

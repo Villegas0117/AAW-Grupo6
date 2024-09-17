@@ -1,36 +1,41 @@
 package pe.edu.upc.avi_aplicaction.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
+import javax.management.relation.Role;
+import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table  (name = "usuarios")
-
-public class Users {
+public class Users implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_usuario;
 
-    @Column(name = "nombre_usuario", nullable = false,length = 25)
-    private String nombre_usuario;
+    @Column(name = "username", nullable = false,length = 25, unique = true)
+    private String username;
 
     @Column(name = "email",nullable = false)
     private String email;
 
-    @Column(name = "contrasena",nullable = false)
-    private String contrasena;
+    @Column(name = "password",nullable = false)
+    private String password;
+    private Boolean enabled;
 
-
-    @ManyToOne
-    @JoinColumn(name = "id_Rol")
-    private roles id_Rol;//FK
+    @JsonIgnore
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id")
+    private List<roles> roles;
 
     @Column(name = "fecha_creacion")
     private LocalDate fecha_registro;
 
     @Column(name = "fecha_modificacion")
     private LocalDate fecha_modificacion;
+
 
     public int getId_usuario() {
         return id_usuario;
@@ -40,12 +45,12 @@ public class Users {
         this.id_usuario = id_usuario;
     }
 
-    public String getNombre_usuario() {
-        return nombre_usuario;
+    public String getUsername() {
+        return username;
     }
 
-    public void setNombre_usuario(String nombre_usuario) {
-        this.nombre_usuario = nombre_usuario;
+    public void setUsername(String nombre_usuario) {
+        this.username = nombre_usuario;
     }
 
     public String getEmail() {
@@ -56,28 +61,33 @@ public class Users {
         this.email = email;
     }
 
-    public String getContrasena() {
-        return contrasena;
+    public String getPassword() {
+        return password;
     }
 
-    public void setContrasena(String contrasena) {
-        this.contrasena = contrasena;
-    }
-    public roles getId_Rol() {
-        return id_Rol;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public void setId_Rol(roles id_Rol) {
-        this.id_Rol = id_Rol;
+    public Boolean getEnabled() {
+        return enabled;
     }
 
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
 
+    public List<pe.edu.upc.avi_aplicaction.entities.roles> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<pe.edu.upc.avi_aplicaction.entities.roles> roles) {
+        this.roles = roles;
+    }
 
     public LocalDate getFecha_registro() {
         return fecha_registro;
     }
-
-
 
     public void setFecha_registro(LocalDate fecha_registro) {
         this.fecha_registro = fecha_registro;
@@ -88,19 +98,6 @@ public class Users {
     }
 
     public void setFecha_modificacion(LocalDate fecha_modificacion) {
-        this.fecha_modificacion = fecha_modificacion;
-    }
-
-    public Users() {
-    }
-
-    public Users(int id_usuario, String nombre_usuario, String email, String contrasena, roles id_Rol, LocalDate fecha_registro, LocalDate fecha_modificacion) {
-        this.id_usuario = id_usuario;
-        this.nombre_usuario = nombre_usuario;
-        this.email = email;
-        this.contrasena = contrasena;
-        this.id_Rol = id_Rol;
-        this.fecha_registro = fecha_registro;
         this.fecha_modificacion = fecha_modificacion;
     }
 }

@@ -2,41 +2,46 @@ package pe.edu.upc.avi_aplicaction.entities;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
+import java.util.List;
+
 @Entity
 @Table (name ="roles")
-public class roles {
+public class roles implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_Rol;
+    private int id;
 
-    @Column(name ="Tipo",nullable = false)
-    private String Tipo;
+    @Column(name = "rol", nullable = false)
+    private String rol;
 
-    public roles(int id_Rol, String Tipo)
-    {
-        this.id_Rol=id_Rol;
-        this.Tipo=Tipo;
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private Users user;
+    public roles() {}
+
+    public int getId() {
+        return id;
     }
 
-    public roles(){
-
-    }
-    public String getType() {return Tipo;}
-
-    public int getId_Rol() {
-        return id_Rol;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setId_Rol(int id_Rol) {
-        this.id_Rol = id_Rol;
+    public String getRol() {
+        return rol;
     }
 
-    public String getTipo() {
-        return Tipo;
+    public void setRol(String rol) {
+        this.rol = rol;
     }
 
-    public void setTipo(String tipo) {
-        Tipo = tipo;
+    public Users getUser() {
+        return user;
+    }
+
+    public void setUser(Users user) {
+        this.user = user;
     }
 }
