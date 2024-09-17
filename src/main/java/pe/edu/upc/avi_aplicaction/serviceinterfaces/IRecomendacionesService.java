@@ -21,7 +21,7 @@ public interface IRecomendacionesService {
     //actualizar una recomendacion
     public void updateRecomendacion(Recomendaciones recomendaciones);
 
-    public List<Recomendaciones> getRecomendacionesByUserId(int idUsuario);
+    public List<Recomendaciones> getRecomendacionesByUserId(int id_usuario);
 
     public List<Recomendaciones> getRecomendacionesByTrendId(int idTendencia);
 

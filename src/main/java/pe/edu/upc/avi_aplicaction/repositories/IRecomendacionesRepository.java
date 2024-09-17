@@ -13,10 +13,10 @@ import java.util.List;
 @Repository
 public interface IRecomendacionesRepository extends JpaRepository<Recomendaciones,Integer> {
 
-    @Query("SELECT r FROM Recomendaciones r WHERE r.id_Usuario = :idUsuario")
-    public List<Recomendaciones> BuscarPorUsuario(@Param("idUsuario") int idUsuario);
+    @Query("SELECT r FROM Recomendaciones r WHERE r.id_Usuario = :id_usuario")
+    public List<Recomendaciones> BuscarPorUsuario(@Param("id_usuario") int id_usuario);
 
-    @Query("SELECT r FROM Recomendaciones r WHERE r.id_Tendencia = :idTendencia")
+    @Query("SELECT r FROM Recomendaciones r WHERE r.id_Tendencia.idTendencia = :idTendencia")
     public List<Recomendaciones> BuscarPorTendencia(@Param("idTendencia") int idTendencia);
 
     //Suma Total de Recomendaciones por Usuario
@@ -30,18 +30,18 @@ public interface IRecomendacionesRepository extends JpaRepository<Recomendacione
     @Query(value = "SELECT COUNT(*) FROM recomendaciones WHERE fecha_modificacion BETWEEN :fechaInicio AND :fechaFin", nativeQuery = true)
     Long findTotalRecomendacionesPorIntervalo(@Param("fechaInicio") LocalDate fechaInicio, @Param("fechaFin") LocalDate fechaFin);
 
-    @Query(value = "SELECT u.id_usuario, u.nombre_usuario, COUNT(r.id_Recomendacion) AS total_recomendaciones " +
+    @Query(value = "SELECT u.id_usuario, u.username, COUNT(r.id_Recomendacion) AS total_recomendaciones " +
             "FROM recomendaciones r " +
             "JOIN usuarios u ON r.id_usuario = u.id_usuario " +
-            "GROUP BY u.id_usuario, u.nombre_usuario " +
+            "GROUP BY u.id_usuario, u.username " +
             "ORDER BY total_recomendaciones DESC " +
             "LIMIT :topN", nativeQuery = true)
     List<String[]> findTopNUsuariosConMasRecomendaciones(@Param("topN") int topN);
 
-    @Query(value = "SELECT t.id_Tendencia, t.nombre_tendencia, COUNT(r.id_Recomendacion) AS total_recomendaciones " +
+    @Query(value = "SELECT t.id_Tendencia, t.nombre, COUNT(r.id_Recomendacion) AS total_recomendaciones " +
             "FROM recomendaciones r " +
-            "JOIN tendencia t ON r.id_Tendencia = t.id_Tendencia " +
-            "GROUP BY t.id_Tendencia, t.nombre_tendencia " +
+            "JOIN tendencias t ON r.id_Tendencia = t.id_Tendencia " +
+            "GROUP BY t.id_Tendencia, t.nombre " +
             "ORDER BY total_recomendaciones DESC " +
             "LIMIT :topN", nativeQuery = true)
     List<String[]> findTopNTendenciasConMasRecomendaciones(@Param("topN") int topN);
