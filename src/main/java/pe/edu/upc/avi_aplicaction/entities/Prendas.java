@@ -19,6 +19,9 @@ public class Prendas {
     @Column(name="nombre_prenda",nullable = false,length = 100)
     private String nombre_prenda;
 
+    @Column(name = "temporada")
+    private String temporada;
+
     @Column(name = "tipo_prenda",nullable = false,length = 255)
     private String tipo_prenda;
 
@@ -43,6 +46,14 @@ public class Prendas {
     }
 
     public Prendas() {
+    }
+
+    public String getTemporada() {
+        return temporada;
+    }
+
+    public void setTemporada(String temporada) {
+        this.temporada = temporada;
     }
 
     public int getId_prenda() {

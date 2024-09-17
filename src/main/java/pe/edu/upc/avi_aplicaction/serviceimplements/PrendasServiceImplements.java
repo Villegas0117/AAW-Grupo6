@@ -3,6 +3,7 @@ package pe.edu.upc.avi_aplicaction.serviceimplements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.edu.upc.avi_aplicaction.entities.Prendas;
+import pe.edu.upc.avi_aplicaction.entities.Users;
 import pe.edu.upc.avi_aplicaction.repositories.IPrendasRepository;
 import pe.edu.upc.avi_aplicaction.serviceinterfaces.IPrendasService;
 
@@ -41,7 +42,15 @@ public class PrendasServiceImplements implements IPrendasService {
         pR.save(prendas);
     }
 
+    @Override
+    public List<Prendas> searchPrendasTemp(String temporada) {
+        return pR.buscarPorTemporada(temporada);
+    }
 
+    @Override
+    public List<Prendas> searchPorTipo(String tipo_prenda) {
+        return pR.buscarPorTipoPrenda(tipo_prenda);
+    }
 
 
 }

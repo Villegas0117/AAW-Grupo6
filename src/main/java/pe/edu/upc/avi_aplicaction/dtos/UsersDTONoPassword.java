@@ -2,11 +2,11 @@ package pe.edu.upc.avi_aplicaction.dtos;
 
 import java.time.LocalDate;
 
-public class UsersDTO {
+public class UsersDTONoPassword {
+
     private int id_usuario;
     private String username;
     private String email;
-    private String password;
     private LocalDate fecha_registro;
     private LocalDate fecha_modificacion;
 
@@ -35,14 +35,6 @@ public class UsersDTO {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String contrasena) {
-        this.password = contrasena;
-    }
-
     public LocalDate getFecha_registro() {
         return fecha_registro;
     }
@@ -59,4 +51,3 @@ public class UsersDTO {
         this.fecha_modificacion = fecha_modificacion;
     }
 }
-

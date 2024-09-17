@@ -13,6 +13,16 @@ public class PrendasDTO {
     private String imagen_url;
     private LocalDate fecha_creacion;
     private LocalDate fecha_modificacion;
+    private String temporada;
+
+
+    public String getTemporada() {
+        return temporada;
+    }
+
+    public void setTemporada(String temporada) {
+        this.temporada = temporada;
+    }
 
     public int getId_prenda() {
         return id_prenda;

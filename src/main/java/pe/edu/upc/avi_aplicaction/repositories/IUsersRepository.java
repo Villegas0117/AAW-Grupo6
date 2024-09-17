@@ -19,8 +19,6 @@ public interface IUsersRepository extends JpaRepository<Users, Integer> {
     public int buscarUsername(@Param("username") String nombre);
 
 
-
-
     @Query("SELECT d FROM Users d WHERE d.email LIKE %:email%")
     public List<Users> buscarPorEmail(@Param("email") String email);
 

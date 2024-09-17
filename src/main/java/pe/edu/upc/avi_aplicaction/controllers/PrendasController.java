@@ -2,9 +2,11 @@ package pe.edu.upc.avi_aplicaction.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.avi_aplicaction.dtos.PrendasDTO;
 import pe.edu.upc.avi_aplicaction.dtos.UsersDTO;
+import pe.edu.upc.avi_aplicaction.dtos.UsersDTONoPassword;
 import pe.edu.upc.avi_aplicaction.entities.Prendas;
 import pe.edu.upc.avi_aplicaction.entities.Users;
 import pe.edu.upc.avi_aplicaction.serviceinterfaces.IPrendasService;
@@ -51,6 +53,24 @@ public class PrendasController {
         ModelMapper m=new ModelMapper();
         Prendas p = m.map(dto, Prendas.class);
         pR.updatePrenda(p);
+    }
+
+    @PreAuthorize("hasAuthority('USUARIO')")
+    @GetMapping("/buscarPrendaTemporada")
+    public List<PrendasDTO> buscarPrendaTemporada(@RequestParam String temporada){
+        return pR.searchPrendasTemp(temporada).stream().map(x->{
+            ModelMapper m=new ModelMapper();
+            return m.map(x, PrendasDTO.class);
+        }).collect(Collectors.toList());
+    }
+
+    @PreAuthorize("hasAuthority('USUARIO')")
+    @GetMapping("/buscarPrendaPorTipo")
+    public List<PrendasDTO> buscarPrendaPorTipo(@RequestParam String temporada){
+        return pR.searchPorTipo(temporada).stream().map(x->{
+            ModelMapper m=new ModelMapper();
+            return m.map(x, PrendasDTO.class);
+        }).collect(Collectors.toList());
     }
 
 }
