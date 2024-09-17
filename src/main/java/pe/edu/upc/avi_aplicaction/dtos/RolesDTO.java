@@ -1,23 +1,35 @@
 package pe.edu.upc.avi_aplicaction.dtos;
 
+import pe.edu.upc.avi_aplicaction.entities.Users;
+
 public class RolesDTO {
 
-    private int Id_Roles;
-    private String Tipo;
+    private int id;
+    private String Rol;
+    private Users user;
 
-    public int getId_Roles() {
-        return Id_Roles;
+
+    public int getId() {
+        return id;
     }
 
-    public void setId_Roles(int id_Roles) {
-        Id_Roles = id_Roles;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getTipo() {
-        return Tipo;
+    public String getRol() {
+        return Rol;
     }
 
-    public void setTipo(String tipo) {
-        Tipo = tipo;
+    public void setRol(String rol) {
+        Rol = rol;
+    }
+
+    public Users getUser() {
+        return user;
+    }
+
+    public void setUser(Users user) {
+        this.user = user;
     }
 }

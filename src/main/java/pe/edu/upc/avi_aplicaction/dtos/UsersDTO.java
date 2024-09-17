@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class UsersDTO {
     private int id_usuario;
-    private String nombre_usuario;
+    private String username;
     private String email;
     private String contrasena;
     private int  id_Rol;
@@ -20,12 +20,12 @@ public class UsersDTO {
         this.id_usuario = id_usuario;
     }
 
-    public String getNombre_usuario() {
-        return nombre_usuario;
+    public String getUsername() {
+        return username;
     }
 
-    public void setNombre_usuario(String nombre_usuario) {
-        this.nombre_usuario = nombre_usuario;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getEmail() {

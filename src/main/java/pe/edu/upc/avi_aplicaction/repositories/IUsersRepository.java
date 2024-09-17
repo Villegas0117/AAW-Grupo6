@@ -11,6 +11,16 @@ import java.util.List;
 
 @Repository
 public interface IUsersRepository extends JpaRepository<Users, Integer> {
+
+    public Users findOneByUsername(String username);
+
+    //BUSCAR POR NOMBRE
+    @Query("select count(u.username) from Users u where u.username =:username")
+    public int buscarUsername(@Param("username") String nombre);
+
+
+
+
     @Query("SELECT d FROM Users d WHERE d.email LIKE %:email%")
     public List<Users> buscarPorEmail(@Param("email") String email);
 
