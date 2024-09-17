@@ -16,8 +16,10 @@ public interface IGaleriasService {
 
     public void updateGalerias(Galerias Galerias);
 
-    //public List<String[]> GaleriaMasReciente();
 
-    //public List<String[]> GaleriaPorUsuario();
+    public List<String[]> GaleriaMasReciente();
+
+    public List<String[]> GaleriaPorUsuario();
+
 
 }
