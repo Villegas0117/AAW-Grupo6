@@ -127,7 +127,7 @@ public class RecomendacionesController {
             ReTendenciasConMasRecomendacionesDTO dto = new ReTendenciasConMasRecomendacionesDTO();
             dto.setId_Tendencia(Integer.parseInt(columna[0]));
             dto.setNombre_tendencia(columna[1]);
-            dto.setTotal_recomendaciones((long) Integer.parseInt(columna[2]));
+            dto.setTotal_recomendaciones(Integer.parseInt(columna[2]));
             listaDTO.add(dto);
         }
         return listaDTO;
