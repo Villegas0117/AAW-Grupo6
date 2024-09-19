@@ -41,10 +41,10 @@ public class UsersController {
     }
 
     @DeleteMapping("/{id}")
-    public void eliminar(@PathVariable("id") Integer id){uR.deleteUser(id);}
+    public void eliminar(@PathVariable("id") Long id){uR.deleteUser(id);}
 
     @GetMapping("/{id}")
-    public UsersDTO listarPorId(@PathVariable("id") Integer id){
+    public UsersDTO listarPorId(@PathVariable("id") Long id){
         ModelMapper m=new ModelMapper();
         UsersDTO dto=m.map(uR.listUserById(id),UsersDTO.class);
         return dto;

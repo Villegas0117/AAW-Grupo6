@@ -11,7 +11,7 @@ public class roles implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     @Column(name = "rol", nullable = false)
     private String rol;
@@ -21,11 +21,11 @@ public class roles implements Serializable {
     private Users user;
     public roles() {}
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
