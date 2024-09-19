@@ -11,7 +11,6 @@ import pe.edu.upc.avi_aplicaction.serviceinterfaces.IUsersService;
 import java.util.List;
 
 @Service
-
 public class UsersServiceImplements implements IUsersService {
     @Autowired
     private IUsersRepository uR;

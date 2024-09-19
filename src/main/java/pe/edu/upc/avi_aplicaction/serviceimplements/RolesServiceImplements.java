@@ -8,7 +8,6 @@ import pe.edu.upc.avi_aplicaction.serviceinterfaces.IRolesService;
 
 import java.util.List;
 @Service
-
 public class RolesServiceImplements implements IRolesService {
     @Autowired
     private IRolesRepository rR;

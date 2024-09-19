@@ -9,7 +9,6 @@ import pe.edu.upc.avi_aplicaction.serviceinterfaces.IRecomendacionesService;
 import java.util.List;
 
 @Service
-
 public class RecomendacionesServiceImplements implements IRecomendacionesService {
     @Autowired
     private IRecomendacionesRepository rR;
