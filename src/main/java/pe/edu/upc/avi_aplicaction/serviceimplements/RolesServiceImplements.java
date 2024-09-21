@@ -9,7 +9,6 @@ import pe.edu.upc.avi_aplicaction.serviceinterfaces.IRolesService;
 
 import java.util.List;
 @Service
-
 public class RolesServiceImplements implements IRolesService {
     @Autowired
     private IRolesRepository rR;
@@ -32,12 +31,12 @@ public class RolesServiceImplements implements IRolesService {
     }
 
     @Override
-    public void delete(int id_Rol) {
+    public void delete(Long id_Rol) {
         rR.deleteById(id_Rol);
     }
 
     @Override
-    public roles listId(int id_Rol) {
+    public roles listId(Long id_Rol) {
         return rR.findById(id_Rol).orElse(new roles());
     }
 

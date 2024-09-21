@@ -11,7 +11,6 @@ import pe.edu.upc.avi_aplicaction.serviceinterfaces.IUsersService;
 import java.util.List;
 
 @Service
-
 public class UsersServiceImplements implements IUsersService {
     @Autowired
     private IUsersRepository uR;
@@ -28,12 +27,12 @@ public class UsersServiceImplements implements IUsersService {
     }
 
     @Override
-    public void deleteUser(int id) {
+    public void deleteUser(Long id) {
         uR.deleteById(id);
     }
 
     @Override
-    public Users listUserById(int id) {
+    public Users listUserById(Long id) {
         return uR.findById(id).orElse(new Users());
     }
 

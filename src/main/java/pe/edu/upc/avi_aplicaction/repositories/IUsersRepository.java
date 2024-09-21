@@ -10,7 +10,7 @@ import pe.edu.upc.avi_aplicaction.entities.Users;
 import java.util.List;
 
 @Repository
-public interface IUsersRepository extends JpaRepository<Users, Integer> {
+public interface IUsersRepository extends JpaRepository<Users, Long> {
 
     public Users findOneByUsername(String username);
 

@@ -9,9 +9,9 @@ public interface IUsersService {
 
     public List<Users> list();
 
-    public void deleteUser(int id);
+    public void deleteUser(Long id);
 
-    public Users listUserById(int id);
+    public Users listUserById(Long id);
 
     public void updateUser(Users user);
 

@@ -13,7 +13,7 @@ import java.util.List;
 public class Users implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id_usuario;
+    private Long id_usuario;
 
     @Column(name = "username", nullable = false,length = 25, unique = true)
     private String username;
@@ -37,11 +37,11 @@ public class Users implements Serializable {
     private LocalDate fecha_modificacion;
 
 
-    public int getId_usuario() {
+    public Long getId_usuario() {
         return id_usuario;
     }
 
-    public void setId_usuario(int id_usuario) {
+    public void setId_usuario(Long id_usuario) {
         this.id_usuario = id_usuario;
     }
 

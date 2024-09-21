@@ -10,7 +10,6 @@ import pe.edu.upc.avi_aplicaction.serviceinterfaces.IGaleriasService;
 import java.util.List;
 
 @Service
-
 public class GaleriasServiceImplements implements IGaleriasService {
     @Autowired
     private IGaleriasRepository galeriasRepository;

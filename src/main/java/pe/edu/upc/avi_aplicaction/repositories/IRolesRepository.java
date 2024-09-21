@@ -11,8 +11,7 @@ import pe.edu.upc.avi_aplicaction.entities.roles;
 import java.util.List;
 
 @Repository
-
-public interface IRolesRepository extends JpaRepository <roles, Integer> {
+public interface IRolesRepository extends JpaRepository <roles, Long> {
     @Query("SELECT r FROM roles r WHERE r.rol LIKE %:Tipo%")
     public List<roles> buscarRol(@Param("Tipo") String Tipo);
 }

@@ -10,7 +10,6 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Service
-
 public class RecomendacionesServiceImplements implements IRecomendacionesService {
     @Autowired
     private IRecomendacionesRepository rR;
