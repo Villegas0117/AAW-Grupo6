@@ -1,4 +1,4 @@
-FROM amazoncorretto:21
+FROM amazoncorretto:22
 
 COPY target/AVI_Aplicaction-0.0.1-SNAPSHOT.jar AVIAPP.jar
 
