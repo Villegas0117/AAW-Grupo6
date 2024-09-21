@@ -25,6 +25,7 @@ pe\edu\upc\avi_aplicaction\repositories\IRecomendacionesRepository.class
 pe\edu\upc\avi_aplicaction\repositories\IConjuntosRepository.class
 pe\edu\upc\avi_aplicaction\serviceinterfaces\ITendenciasService.class
 pe\edu\upc\avi_aplicaction\dtos\TendenciaDTO.class
+pe\edu\upc\avi_aplicaction\dtos\UsersNoPassDTO.class
 pe\edu\upc\avi_aplicaction\serviceinterfaces\IConjuntosService.class
 pe\edu\upc\avi_aplicaction\AviAplicactionApplication.class
 pe\edu\upc\avi_aplicaction\dtos\ConjuntosDTO.class

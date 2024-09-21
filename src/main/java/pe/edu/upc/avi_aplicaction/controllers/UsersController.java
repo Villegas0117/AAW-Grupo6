@@ -7,6 +7,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.avi_aplicaction.dtos.UsersDTO;
+import pe.edu.upc.avi_aplicaction.dtos.UsersNoPassDTO;
 import pe.edu.upc.avi_aplicaction.entities.Users;
 import pe.edu.upc.avi_aplicaction.serviceinterfaces.IUsersService;
 
@@ -33,10 +34,10 @@ public class UsersController {
 
     @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     @GetMapping
-    public List<UsersDTO> listar(){
+    public List<UsersNoPassDTO> listar(){
         return uR.list().stream().map(x->{
             ModelMapper m=new ModelMapper();
-            return m.map(x, UsersDTO.class);
+            return m.map(x, UsersNoPassDTO.class);
         }).collect(Collectors.toList());
     }
 

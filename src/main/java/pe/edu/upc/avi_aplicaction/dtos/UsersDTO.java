@@ -7,7 +7,7 @@ public class UsersDTO {
     private String username;
     private String email;
     private String contrasena;
-    private int  id_Rol;
+
     private LocalDate fecha_registro;
     private LocalDate fecha_modificacion;
 
@@ -42,14 +42,6 @@ public class UsersDTO {
 
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
-    }
-
-    public int getId_Rol() {
-        return id_Rol;
-    }
-
-    public void setId_Rol(int id_Rol) {
-        this.id_Rol = id_Rol;
     }
 
     public LocalDate getFecha_registro() {
