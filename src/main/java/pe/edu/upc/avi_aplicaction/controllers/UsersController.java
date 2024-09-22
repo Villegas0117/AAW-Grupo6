@@ -23,6 +23,7 @@ public class UsersController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     @PostMapping
     public void registrar(@RequestBody UsersDTO dto) {
         ModelMapper m = new ModelMapper();
@@ -41,9 +42,12 @@ public class UsersController {
         }).collect(Collectors.toList());
     }
 
+
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") Long id){uR.deleteUser(id);}
 
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     @GetMapping("/{id}")
     public UsersDTO listarPorId(@PathVariable("id") Long id){
         ModelMapper m=new ModelMapper();
@@ -51,6 +55,7 @@ public class UsersController {
         return dto;
     }
 
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     @PutMapping
     public void modificar(@RequestBody UsersDTO dto){
         ModelMapper m=new ModelMapper();
@@ -58,6 +63,7 @@ public class UsersController {
         uR.updateUser(u);
     }
 
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     @GetMapping("/buscarUsuario")
     public List<UsersDTO> buscarUsuario(@RequestParam String email){
         return uR.searchUser(email).stream().map(x->{

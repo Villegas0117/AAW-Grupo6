@@ -25,4 +25,6 @@ public interface IConjuntoDiaRepository extends JpaRepository<ConjuntoDia, Integ
     List<ConjuntoDia> buscarporFecha(@Param("startDate") LocalDateTime startDate, @Param("endDate") LocalDateTime endDate);
 
 
+    List<ConjuntoDia> findByFechaCreacionBetween(LocalDateTime inicio, LocalDateTime fin);
+
 }

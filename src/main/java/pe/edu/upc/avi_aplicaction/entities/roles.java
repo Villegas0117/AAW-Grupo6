@@ -6,19 +6,20 @@ import java.io.Serializable;
 import java.util.List;
 
 @Entity
-@Table (name ="roles")
+@Table (name ="roles",uniqueConstraints = {@UniqueConstraint(columnNames = {"user_id", "rol"})})
 public class roles implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "rol", nullable = false)
     private String rol;
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private Users user;
+
+
     public roles() {}
 
     public Long getId() {

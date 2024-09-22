@@ -4,19 +4,19 @@ import java.time.LocalDate;
 
 public class UsersNoPassDTO {
 
-    private Long id_usuario;
+    private Long id;
     private String username;
     private String email;
-    private String password;
+
     private LocalDate fecha_registro;
     private LocalDate fecha_modificacion;
 
-    public Long getId_usuario() {
-        return id_usuario;
+    public Long getId() {
+        return id;
     }
 
-    public void setId_usuario(Long id_usuario) {
-        this.id_usuario = id_usuario;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getUsername() {
@@ -35,13 +35,6 @@ public class UsersNoPassDTO {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 
     public LocalDate getFecha_registro() {
         return fecha_registro;

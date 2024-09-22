@@ -6,6 +6,7 @@ import pe.edu.upc.avi_aplicaction.entities.ConjuntoDia;
 import pe.edu.upc.avi_aplicaction.repositories.IConjuntoDiaRepository;
 import pe.edu.upc.avi_aplicaction.serviceinterfaces.IConjuntosDiaService;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -49,5 +50,11 @@ public class ConjuntoDiaServiceImplements implements IConjuntosDiaService {
     public List<ConjuntoDia> buscarporIdConjunto(int idUsuario) {
         return cDRepository.buscarporIdConjunto(idUsuario);
     }
+
+    @Override
+    public List<ConjuntoDia> buscarPorFechaCreacion(LocalDateTime inicio, LocalDateTime fin) {
+        return cDRepository.findByFechaCreacionBetween(inicio, fin);
+    }
+
 
 }

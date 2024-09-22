@@ -54,18 +54,26 @@ public class WebSecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
-        //Desde Spring Boot 3.1+
         httpSecurity
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(req -> req
-                        .requestMatchers(antMatcher("/login")).permitAll()
-                        .anyRequest().authenticated()
+                        .requestMatchers(
+                                "/v3/api-docs/**",   // Permitir acceso a la documentación de la API
+                                "/swagger-ui/**",    // Permitir acceso a la interfaz de Swagger UI
+                                "/swagger-ui.html",   // Permitir acceso a la página principal de Swagger UI
+                                "/swagger-resources/**", // Permitir acceso a los recursos de Swagger
+                                "/webjars/**"        // Permitir acceso a los webjars utilizados por Swagger
+                        ).permitAll()  // Permitir acceso sin autenticación a las rutas anteriores
+                        .requestMatchers("/login").permitAll() // Permitir acceso al login
+                        .anyRequest().authenticated()  // Requiere autenticación para cualquier otra solicitud
                 )
                 .httpBasic(Customizer.withDefaults())
                 .formLogin(AbstractHttpConfigurer::disable)
                 .exceptionHandling(e -> e.authenticationEntryPoint(jwtAuthenticationEntryPoint))
                 .sessionManagement(Customizer.withDefaults());
+
         httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
         return httpSecurity.build();
     }
+
 }

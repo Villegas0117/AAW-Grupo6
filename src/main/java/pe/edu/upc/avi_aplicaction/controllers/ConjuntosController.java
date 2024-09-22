@@ -2,6 +2,7 @@ package pe.edu.upc.avi_aplicaction.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.avi_aplicaction.dtos.ConjuntosDTO;
 import pe.edu.upc.avi_aplicaction.entities.Conjuntos;
@@ -17,6 +18,7 @@ public class ConjuntosController {
     @Autowired
     private IConjuntosService cs;
 
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     @GetMapping
     public List<ConjuntosDTO> listar(){
         return cs.list().stream().map(x->{
@@ -58,7 +60,7 @@ public class ConjuntosController {
     }
 
 
-    //QUERY PARA LISTAR LOS ULTIMOS MODIFICADOS
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     @GetMapping("/buscarUltimosModificados")
     public List<ConjuntosDTO> buscarUltimosModificados() {
         return cs.buscarUltimosModificados().stream().map(x -> {
