@@ -5,7 +5,7 @@ import pe.edu.upc.avi_aplicaction.entities.Users;
 public class RolesDTO {
 
     private Long id;
-    private String Rol;
+    private String rol;
     private Users user;
 
 
@@ -18,11 +18,11 @@ public class RolesDTO {
     }
 
     public String getRol() {
-        return Rol;
+        return rol;
     }
 
     public void setRol(String rol) {
-        Rol = rol;
+        this.rol = rol;
     }
 
     public Users getUser() {

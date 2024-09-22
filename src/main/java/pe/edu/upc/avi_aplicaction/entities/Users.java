@@ -11,17 +11,17 @@ import java.util.List;
 @Entity
 @Table  (name = "usuarios")
 public class Users implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_usuario;
+    private Long id;
 
-    @Column(name = "username", nullable = false,length = 25, unique = true)
+    @Column(length = 25, unique = true)
     private String username;
 
-    @Column(name = "email",nullable = false)
+    @Column(unique = true)
     private String email;
 
-    @Column(name = "password",nullable = false)
     private String password;
     private Boolean enabled;
 
@@ -36,21 +36,20 @@ public class Users implements Serializable {
     @Column(name = "fecha_modificacion")
     private LocalDate fecha_modificacion;
 
-
-    public Long getId_usuario() {
-        return id_usuario;
+    public Long getId() {
+        return id;
     }
 
-    public void setId_usuario(Long id_usuario) {
-        this.id_usuario = id_usuario;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getUsername() {
         return username;
     }
 
-    public void setUsername(String nombre_usuario) {
-        this.username = nombre_usuario;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getEmail() {
