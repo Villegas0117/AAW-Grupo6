@@ -3,20 +3,21 @@ package pe.edu.upc.avi_aplicaction.dtos;
 import java.time.LocalDate;
 
 public class UsersDTO {
-    private Long id;
+    private Long id_usuario;
     private String username;
     private String email;
-    private String password;
+    private String contrasena;
 
     private LocalDate fecha_registro;
     private LocalDate fecha_modificacion;
 
-    public Long getId() {
-        return id;
+
+    public Long getId_usuario() {
+        return id_usuario;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setId_usuario(Long id_usuario) {
+        this.id_usuario = id_usuario;
     }
 
     public String getUsername() {
@@ -35,12 +36,12 @@ public class UsersDTO {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
+    public String getContrasena() {
+        return contrasena;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
 
     public LocalDate getFecha_registro() {
@@ -59,3 +60,4 @@ public class UsersDTO {
         this.fecha_modificacion = fecha_modificacion;
     }
 }
+

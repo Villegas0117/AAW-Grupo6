@@ -10,4 +10,4 @@ public class AviAplicactionApplication {
 		SpringApplication.run(AviAplicactionApplication.class, args);
 	}
 
-}//Fin de class AviAplicacio
+}//Fin de class AviAplicacion
