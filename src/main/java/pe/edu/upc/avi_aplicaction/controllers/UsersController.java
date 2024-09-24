@@ -58,8 +58,10 @@ public class UsersController {
     @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     @PutMapping
     public void modificar(@RequestBody UsersDTO dto){
-        ModelMapper m=new ModelMapper();
+        ModelMapper m = new ModelMapper();
         Users u = m.map(dto, Users.class);
+        String encodedPassword = passwordEncoder.encode(u.getPassword());
+        u.setPassword(encodedPassword);
         uR.updateUser(u);
     }
 

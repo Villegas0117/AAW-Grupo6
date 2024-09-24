@@ -7,7 +7,6 @@ public class UsersNoPassDTO {
     private Long id;
     private String username;
     private String email;
-
     private LocalDate fecha_registro;
     private LocalDate fecha_modificacion;
 

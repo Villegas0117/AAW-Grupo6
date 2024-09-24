@@ -36,6 +36,20 @@ public class Users implements Serializable {
     @Column(name = "fecha_modificacion")
     private LocalDate fecha_modificacion;
 
+    public Users() {
+    }
+
+    public Users(Long id, String username, String email, String password, Boolean enabled, List<pe.edu.upc.avi_aplicaction.entities.roles> roles, LocalDate fecha_registro, LocalDate fecha_modificacion) {
+        this.id = id;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.enabled = enabled;
+        this.roles = roles;
+        this.fecha_registro = fecha_registro;
+        this.fecha_modificacion = fecha_modificacion;
+    }
+
     public Long getId() {
         return id;
     }

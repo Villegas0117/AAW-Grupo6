@@ -19,11 +19,11 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 
-import static org.springframework.security.web.util.matcher.AntPathRequestMatcher.antMatcher;
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
 public class WebSecurityConfig {
+
     @Autowired
     private JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
 
@@ -31,7 +31,7 @@ public class WebSecurityConfig {
     private UserDetailsService jwtUserDetailsService;
 
     @Autowired
-    private JwtRequestFilter  jwtRequestFilter;
+    private JwtRequestFilter jwtRequestFilter;
 
     @Autowired
     @Qualifier("handlerExceptionResolver")
@@ -57,22 +57,28 @@ public class WebSecurityConfig {
         httpSecurity
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(req -> req
+                        // Permitir acceso a Swagger sin autenticación
                         .requestMatchers(
-                                "/v3/api-docs/**",   // Permitir acceso a la documentación de la API
-                                "/swagger-ui/**",    // Permitir acceso a la interfaz de Swagger UI
-                                "/swagger-ui.html",   // Permitir acceso a la página principal de Swagger UI
-                                "/swagger-resources/**", // Permitir acceso a los recursos de Swagger
-                                "/webjars/**"        // Permitir acceso a los webjars utilizados por Swagger
-                        ).permitAll()  // Permitir acceso sin autenticación a las rutas anteriores
-                        .requestMatchers("/login").permitAll() // Permitir acceso al login
-                        .anyRequest().authenticated()  // Requiere autenticación para cualquier otra solicitud
+                                "/v2/api-docs",
+                                "/v3/api-docs/**",
+                                "/swagger-resources/**",
+                                "/swagger-ui/**",
+                                "/swagger-ui.html",
+                                "/webjars/**"
+                        ).permitAll()
+                        // Permitir acceso a /login sin autenticación
+                        .requestMatchers("/login").permitAll()
+                        // Cualquier otra solicitud requiere autenticación
+                        .anyRequest().authenticated()
                 )
                 .httpBasic(Customizer.withDefaults())
                 .formLogin(AbstractHttpConfigurer::disable)
                 .exceptionHandling(e -> e.authenticationEntryPoint(jwtAuthenticationEntryPoint))
                 .sessionManagement(Customizer.withDefaults());
 
+        // Añadir el filtro JWT antes del filtro de autenticación
         httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
+
         return httpSecurity.build();
     }
 

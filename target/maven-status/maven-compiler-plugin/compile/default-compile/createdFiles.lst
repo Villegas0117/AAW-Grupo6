@@ -33,6 +33,7 @@ pe\edu\upc\avi_aplicaction\repositories\IPrendasRepository.class
 pe\edu\upc\avi_aplicaction\securities\JwtResponse.class
 pe\edu\upc\avi_aplicaction\repositories\IUsersRepository.class
 pe\edu\upc\avi_aplicaction\controllers\RecomendacionesController.class
+pe\edu\upc\avi_aplicaction\securities\SwaggerConfig.class
 pe\edu\upc\avi_aplicaction\repositories\IGaleriasRepository.class
 pe\edu\upc\avi_aplicaction\dtos\GaleriaTotalUsuarioDTO.class
 pe\edu\upc\avi_aplicaction\serviceimplements\UsersServiceImplements.class
