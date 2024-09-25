@@ -2,11 +2,12 @@ package pe.edu.upc.avi_aplicaction.entities;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "conjunto_dia")
-public class ConjuntoDia {
+public class ConjuntoSemanal {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -16,26 +17,25 @@ public class ConjuntoDia {
     private Users id_usuario;//FK
 
     @Column(name = "fecha_creacion")
-    private LocalDateTime fechaCreacion;
+    private LocalDate fechaCreacion;
 
     @ManyToOne
     @JoinColumn(name = "id_conjunto")
     private Conjuntos id_conjunto;//FK
 
     @Column(name = "diadesemana")
-    private LocalDateTime diaDeSemana;
+    private LocalDate diaDeSemana;
 
-    public ConjuntoDia() {
+    public ConjuntoSemanal() {
     }
 
-    public ConjuntoDia(int id, Users id_usuario, LocalDateTime fechaCreacion, Conjuntos id_conjunto, LocalDateTime diaDeSemana) {
+    public ConjuntoSemanal(int id, Users id_usuario, LocalDate fechaCreacion, Conjuntos id_conjunto, LocalDate diaDeSemana) {
         this.id = id;
         this.id_usuario = id_usuario;
         this.fechaCreacion = fechaCreacion;
         this.id_conjunto = id_conjunto;
         this.diaDeSemana = diaDeSemana;
     }
-
     // Getters y setters
 
 
@@ -55,11 +55,11 @@ public class ConjuntoDia {
         this.id_usuario = id_usuario;
     }
 
-    public LocalDateTime getFechaCreacion() {
+    public LocalDate getFechaCreacion() {
         return fechaCreacion;
     }
 
-    public void setFechaCreacion(LocalDateTime fechaCreacion) {
+    public void setFechaCreacion(LocalDate fechaCreacion) {
         this.fechaCreacion = fechaCreacion;
     }
 
@@ -71,11 +71,11 @@ public class ConjuntoDia {
         this.id_conjunto = id_conjunto;
     }
 
-    public LocalDateTime getDiaDeSemana() {
+    public LocalDate getDiaDeSemana() {
         return diaDeSemana;
     }
 
-    public void setDiaDeSemana(LocalDateTime diaDeSemana) {
+    public void setDiaDeSemana(LocalDate diaDeSemana) {
         this.diaDeSemana = diaDeSemana;
     }
 }

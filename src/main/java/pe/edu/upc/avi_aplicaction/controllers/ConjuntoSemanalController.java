@@ -4,8 +4,8 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-import pe.edu.upc.avi_aplicaction.dtos.ConjuntoDiaDTO;
-import pe.edu.upc.avi_aplicaction.entities.ConjuntoDia;
+import pe.edu.upc.avi_aplicaction.dtos.ConjuntoSemanalDTO;
+import pe.edu.upc.avi_aplicaction.entities.ConjuntoSemanal;
 import pe.edu.upc.avi_aplicaction.serviceinterfaces.IConjuntosDiaService;
 
 
@@ -15,42 +15,42 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/conjunto-dia")
-public class ConjuntoDiaController {
+@RequestMapping("/conjunto-semanal")
+public class ConjuntoSemanalController {
 
     @Autowired
     private IConjuntosDiaService service;
 
-    @PreAuthorize("hasAnyAuthority('USUARIO', 'ADMINISTRADOR')")
+    //@PreAuthorize("hasAnyAuthority('USUARIO', 'ADMINISTRADOR')")
     @GetMapping
-    public List<ConjuntoDiaDTO> listar(){
+    public List<ConjuntoSemanalDTO> listar(){
         return service.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();
-            return m.map(x, ConjuntoDiaDTO.class);
+            return m.map(x, ConjuntoSemanalDTO.class);
         }).collect(Collectors.toList());
     }
 
     @PreAuthorize("hasAnyAuthority('USUARIO', 'ADMINISTRADOR')")
     @PostMapping
-    public void registrar(@RequestBody ConjuntoDiaDTO dto) {
+    public void registrar(@RequestBody ConjuntoSemanalDTO dto) {
         ModelMapper m = new ModelMapper();
-        ConjuntoDia conjuntoDia = m.map(dto, ConjuntoDia.class);
-        service.insert(conjuntoDia);
+        ConjuntoSemanal conjuntoSemanal = m.map(dto, ConjuntoSemanal.class);
+        service.insert(conjuntoSemanal);
     }
 
     @PreAuthorize("hasAnyAuthority('USUARIO', 'ADMINISTRADOR')")
     @GetMapping("/{id}")
-    public ConjuntoDiaDTO listarId(@PathVariable("id") Integer id) {
+    public ConjuntoSemanalDTO listarId(@PathVariable("id") Integer id) {
         ModelMapper m = new ModelMapper();
-        return m.map(service.listId(id), ConjuntoDiaDTO.class);
+        return m.map(service.listId(id), ConjuntoSemanalDTO.class);
     }
 
     @PreAuthorize("hasAnyAuthority('USUARIO', 'ADMINISTRADOR')")
     @PutMapping
-    public void modificar(@RequestBody ConjuntoDiaDTO dto) {
+    public void modificar(@RequestBody ConjuntoSemanalDTO dto) {
         ModelMapper m = new ModelMapper();
-        ConjuntoDia conjuntoDia = m.map(dto, ConjuntoDia.class);
-        service.update(conjuntoDia);
+        ConjuntoSemanal conjuntoSemanal = m.map(dto, ConjuntoSemanal.class);
+        service.update(conjuntoSemanal);
     }
 
     @PreAuthorize("hasAnyAuthority('USUARIO', 'ADMINISTRADOR')")
@@ -63,19 +63,19 @@ public class ConjuntoDiaController {
     // Consultas personalizadas
     @PreAuthorize("hasAnyAuthority('USUARIO', 'ADMINISTRADOR')")
     @GetMapping("/buscarPorUsuario")
-    public List<ConjuntoDiaDTO> buscarPorUsuario(@RequestParam int id_usuario) {
+    public List<ConjuntoSemanalDTO> buscarPorUsuario(@RequestParam int id_usuario) {
         return service.buscarPorUsuario(id_usuario).stream().map(x -> {
             ModelMapper m = new ModelMapper();
-            return m.map(x, ConjuntoDiaDTO.class);
+            return m.map(x, ConjuntoSemanalDTO.class);
         }).collect(Collectors.toList());
     }
 
     @PreAuthorize("hasAnyAuthority('USUARIO', 'ADMINISTRADOR')")
     @GetMapping("/buscarPorIdConjunto")
-    public List<ConjuntoDiaDTO> buscarPorIdConjunto(@RequestParam int id_conjunto) {
+    public List<ConjuntoSemanalDTO> buscarPorIdConjunto(@RequestParam int id_conjunto) {
         return service.buscarporIdConjunto(id_conjunto).stream().map(x -> {
             ModelMapper m = new ModelMapper();
-            return m.map(x, ConjuntoDiaDTO.class);
+            return m.map(x, ConjuntoSemanalDTO.class);
         }).collect(Collectors.toList());
     }
 
@@ -83,14 +83,14 @@ public class ConjuntoDiaController {
     //Listar por semana el conjunto: método realizado por Linda
     @PreAuthorize("hasAnyAuthority('USUARIO', 'ADMINISTRADOR')")
     @GetMapping("/buscarPorSemana")
-    public List<ConjuntoDiaDTO> buscarPorSemana() {
+    public List<ConjuntoSemanalDTO> buscarPorSemana() {
         LocalDateTime ahora = LocalDateTime.now(); // Obtener la fecha y hora actual
         LocalDateTime inicioSemana = ahora.with(DayOfWeek.MONDAY).toLocalDate().atStartOfDay();
         LocalDateTime finSemana = ahora.with(DayOfWeek.SUNDAY).toLocalDate().atTime(23, 59, 59);
 
         return service.buscarPorFechaCreacion(inicioSemana, finSemana).stream().map(x -> {
             ModelMapper m = new ModelMapper();
-            return m.map(x, ConjuntoDiaDTO.class);
+            return m.map(x, ConjuntoSemanalDTO.class);
         }).collect(Collectors.toList());
     }
 }
