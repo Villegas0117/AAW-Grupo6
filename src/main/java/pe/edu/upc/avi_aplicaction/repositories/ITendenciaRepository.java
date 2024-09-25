@@ -17,4 +17,8 @@ public interface ITendenciaRepository extends JpaRepository<Tendencia, Integer> 
 
     @Query("SELECT t FROM Tendencia t WHERE t.popularidad > :popularidad")
     List<Tendencia> buscarPorPopularidad(@Param("popularidad") int popularidad);
+
+    @Query("SELECT t FROM Tendencia t WHERE t.categoria = :categoria ORDER BY t.fechaCreacion DESC LIMIT 1")
+    Tendencia obtenerTendenciaMasRecientePorCategoria(@Param("categoria") String categoria);
+
 }

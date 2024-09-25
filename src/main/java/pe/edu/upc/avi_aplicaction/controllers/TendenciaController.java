@@ -66,4 +66,10 @@ public class TendenciaController {
             return m.map(x, TendenciaDTO.class);
         }).collect(Collectors.toList());
     }
+
+    // Nuevo endpoint para obtener la tendencia más reciente por categoría
+    @GetMapping("/recientePorCategoria")
+    public Tendencia obtenerTendenciaMasRecientePorCategoria(@RequestParam String categoria) {
+        return service.obtenerTendenciaMasRecientePorCategoria(categoria);
+    }
 }

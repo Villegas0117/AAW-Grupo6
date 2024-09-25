@@ -2,6 +2,8 @@ package pe.edu.upc.avi_aplicaction.entities;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Table(name = "tendencias")
 public class Tendencia {
@@ -20,6 +22,10 @@ public class Tendencia {
 
     @Column(name = "popularidad")
     private int popularidad;
+
+    @Column(name = "fecha_creacion")
+    private LocalDateTime fechaCreacion;
+
 
     // Getters y setters
     public int getIdTendencia() {
@@ -60,5 +66,13 @@ public class Tendencia {
 
     public void setPopularidad(int popularidad) {
         this.popularidad = popularidad;
+    }
+
+    public LocalDateTime getFechaCreacion() {
+        return fechaCreacion;
+    }
+
+    public void setFechaCreacion(LocalDateTime fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
     }
 }

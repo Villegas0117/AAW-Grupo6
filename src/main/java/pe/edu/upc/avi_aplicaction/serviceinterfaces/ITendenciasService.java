@@ -16,4 +16,6 @@ public interface ITendenciasService {
     List<Tendencia> buscarPorCategoria(String categoria);
 
     List<Tendencia> buscarPorPopularidad(int popularidad);
+
+    Tendencia obtenerTendenciaMasRecientePorCategoria(String categoria);
 }
