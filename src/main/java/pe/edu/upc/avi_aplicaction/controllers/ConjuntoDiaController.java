@@ -67,4 +67,9 @@ public class ConjuntoDiaController {
             return m.map(x, ConjuntoDiaDTO.class);
         }).collect(Collectors.toList());
     }
+    @GetMapping("/registroRecientePorUsuario")
+    public ConjuntoDia obtenerRegistroMasRecientePorUsuario(@RequestParam int id_usuario) {
+        return service.obtenerRegistroMasRecientePorUsuario(id_usuario);
+    }
+
 }

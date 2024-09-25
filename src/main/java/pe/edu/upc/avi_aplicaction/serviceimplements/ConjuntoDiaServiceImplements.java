@@ -49,5 +49,9 @@ public class ConjuntoDiaServiceImplements implements IConjuntosDiaService {
     public List<ConjuntoDia> buscarporIdConjunto(int idUsuario) {
         return cDRepository.buscarporIdConjunto(idUsuario);
     }
+    @Override
+    public ConjuntoDia obtenerRegistroMasRecientePorUsuario(int id_usuario) {
+        return cDRepository.obtenerRegistroMasRecientePorUsuario(id_usuario);
+    }
 
 }

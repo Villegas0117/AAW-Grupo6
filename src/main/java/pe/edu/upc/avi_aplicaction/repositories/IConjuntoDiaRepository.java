@@ -24,5 +24,8 @@ public interface IConjuntoDiaRepository extends JpaRepository<ConjuntoDia, Integ
     @Query("SELECT cd FROM ConjuntoDia cd WHERE cd.fechaCreacion BETWEEN :startDate AND :endDate")
     List<ConjuntoDia> buscarporFecha(@Param("startDate") LocalDateTime startDate, @Param("endDate") LocalDateTime endDate);
 
+    @Query("SELECT cd FROM ConjuntoDia cd WHERE cd.id_usuario = :id_usuario ORDER BY cd.fechaCreacion DESC LIMIT 1")
+    ConjuntoDia obtenerRegistroMasRecientePorUsuario(@Param("id_usuario") int id_usuario);
+
 
 }

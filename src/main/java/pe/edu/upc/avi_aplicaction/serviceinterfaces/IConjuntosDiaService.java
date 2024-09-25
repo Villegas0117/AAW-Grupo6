@@ -14,4 +14,6 @@ public interface IConjuntosDiaService {
 
     List<ConjuntoDia> buscarPorUsuario(int id_usuario);
     List<ConjuntoDia> buscarporIdConjunto(int id_conjunto);
+    ConjuntoDia obtenerRegistroMasRecientePorUsuario(int id_usuario);
+
 }
