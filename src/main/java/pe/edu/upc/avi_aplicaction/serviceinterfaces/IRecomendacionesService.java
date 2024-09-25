@@ -25,10 +25,6 @@ public interface IRecomendacionesService {
 
     public List<Recomendaciones> getRecomendacionesByTrendId(int idTendencia);
 
-    public List<String[]> obtenerTotalRecomendacionesPorIDUsuario();
-
-    public List<String[]> obtenerTotalRecomendacionesPorIDTendencia();
-
     public Long obtenerTotalRecomendacionesPorIntervalo(LocalDate fechaInicio, LocalDate fechaFin);
 
     public List<String[]> obtenerTopNUsuariosConMasRecomendaciones(int topN);
