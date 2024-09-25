@@ -67,32 +67,6 @@ public class RecomendacionesController {
         }).collect(Collectors.toList());
     }
 
-    @GetMapping("/TotalRecomendacionsPorIDusuario")
-    public List<RecomendacionesPorIDusuarioDTO> cantidad(){
-        List<String[]> lista=rS.obtenerTotalRecomendacionesPorIDUsuario();
-        List<RecomendacionesPorIDusuarioDTO> listaDTO=new ArrayList<>();
-        for(String[] columna:lista){
-            RecomendacionesPorIDusuarioDTO dto=new RecomendacionesPorIDusuarioDTO();
-            dto.setId_usuario(Integer.parseInt(columna[0]));
-            dto.setTotal_recomendaciones((long) Integer.parseInt(columna[1]));
-            listaDTO.add(dto);
-        }
-        return listaDTO;
-    }
-
-    @GetMapping("/TotalRecomendacionsPorIDTendencia")
-    public List<RecomendacionesPorIDTendenciaDTO> cantidad1(){
-        List<String[]> lista=rS.obtenerTotalRecomendacionesPorIDTendencia();
-        List<RecomendacionesPorIDTendenciaDTO> listaDTO=new ArrayList<>();
-        for(String[] columna:lista){
-            RecomendacionesPorIDTendenciaDTO dto=new RecomendacionesPorIDTendenciaDTO();
-            dto.setId_tendencias(Integer.parseInt(columna[0]));
-            dto.setTotal_recomendaciones((long) Integer.parseInt(columna[1]));
-            listaDTO.add(dto);
-        }
-        return listaDTO;
-    }
-
     @GetMapping("/TotalRecomendacionesPorIntervalo")
     public RecomendacionesPorIntervaloDTO obtenerPorIntervalo(@RequestParam LocalDate fechaInicio, @RequestParam LocalDate fechaFin) {
         // Obtén el total de recomendaciones del servicio

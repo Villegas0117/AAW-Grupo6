@@ -50,15 +50,6 @@ public class RecomendacionesServiceImplements implements IRecomendacionesService
         return rR.BuscarPorTendencia(idTendencia);
     }
 
-    @Override
-    public List<String[]> obtenerTotalRecomendacionesPorIDUsuario() {
-        return rR.findTotalRecomendacionesPorUsuario();
-    }
-
-    @Override
-    public List<String[]> obtenerTotalRecomendacionesPorIDTendencia() {
-        return rR.findTotalRecomendacionesPorTendencia();
-    }
 
     @Override
     public Long obtenerTotalRecomendacionesPorIntervalo(LocalDate fechaInicio, LocalDate fechaFin) {
