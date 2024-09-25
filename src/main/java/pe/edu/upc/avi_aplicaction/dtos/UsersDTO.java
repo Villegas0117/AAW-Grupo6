@@ -6,11 +6,26 @@ public class UsersDTO {
     private Long id_usuario;
     private String username;
     private String email;
-    private String contrasena;
-    private int  id_Rol;
+    private String password;
+    private Boolean enabled;
     private LocalDate fecha_registro;
     private LocalDate fecha_modificacion;
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
+    }
 
     public Long getId_usuario() {
         return id_usuario;
@@ -34,22 +49,6 @@ public class UsersDTO {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getContrasena() {
-        return contrasena;
-    }
-
-    public void setContrasena(String contrasena) {
-        this.contrasena = contrasena;
-    }
-
-    public int getId_Rol() {
-        return id_Rol;
-    }
-
-    public void setId_Rol(int id_Rol) {
-        this.id_Rol = id_Rol;
     }
 
     public LocalDate getFecha_registro() {

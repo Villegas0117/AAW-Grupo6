@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: pe.edu.upc.avi_aplicaction.AviAplicactionApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 45.22 s -- in pe.edu.upc.avi_aplicaction.AviAplicactionApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 32.75 s -- in pe.edu.upc.avi_aplicaction.AviAplicactionApplicationTests

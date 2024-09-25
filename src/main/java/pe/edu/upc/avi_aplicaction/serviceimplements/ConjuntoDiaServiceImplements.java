@@ -2,10 +2,11 @@ package pe.edu.upc.avi_aplicaction.serviceimplements;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pe.edu.upc.avi_aplicaction.entities.ConjuntoDia;
+import pe.edu.upc.avi_aplicaction.entities.ConjuntoSemanal;
 import pe.edu.upc.avi_aplicaction.repositories.IConjuntoDiaRepository;
 import pe.edu.upc.avi_aplicaction.serviceinterfaces.IConjuntosDiaService;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -15,23 +16,23 @@ public class ConjuntoDiaServiceImplements implements IConjuntosDiaService {
     private IConjuntoDiaRepository cDRepository;
 
     @Override
-    public List<ConjuntoDia> list() {
+    public List<ConjuntoSemanal> list() {
         return cDRepository.findAll();
     }
 
     @Override
-    public void insert(ConjuntoDia conjuntoDia) {
-        cDRepository.save(conjuntoDia);
+    public void insert(ConjuntoSemanal conjuntoSemanal) {
+        cDRepository.save(conjuntoSemanal);
     }
 
     @Override
-    public ConjuntoDia listId(Integer id) {
-        return cDRepository.findById(id).orElse(new ConjuntoDia());
+    public ConjuntoSemanal listId(Integer id) {
+        return cDRepository.findById(id).orElse(new ConjuntoSemanal());
     }
 
     @Override
-    public void update(ConjuntoDia conjuntoDia) {
-        cDRepository.save(conjuntoDia);
+    public void update(ConjuntoSemanal conjuntoSemanal) {
+        cDRepository.save(conjuntoSemanal);
     }
 
     @Override
@@ -41,13 +42,19 @@ public class ConjuntoDiaServiceImplements implements IConjuntosDiaService {
 
 
     @Override
-    public List<ConjuntoDia> buscarPorUsuario(int idUsuario) {
+    public List<ConjuntoSemanal> buscarPorUsuario(int idUsuario) {
         return cDRepository.buscarPorUsuario(idUsuario);
     }
 
     @Override
-    public List<ConjuntoDia> buscarporIdConjunto(int idUsuario) {
+    public List<ConjuntoSemanal> buscarporIdConjunto(int idUsuario) {
         return cDRepository.buscarporIdConjunto(idUsuario);
     }
+
+    @Override
+    public List<ConjuntoSemanal> buscarPorFechaCreacion(LocalDateTime inicio, LocalDateTime fin) {
+        return cDRepository.findByFechaCreacionBetween(inicio, fin);
+    }
+
 
 }
