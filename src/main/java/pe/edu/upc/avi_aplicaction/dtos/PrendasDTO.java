@@ -1,5 +1,6 @@
 package pe.edu.upc.avi_aplicaction.dtos;
 
+import jakarta.persistence.*;
 import pe.edu.upc.avi_aplicaction.entities.Users;
 
 import java.time.LocalDate;
@@ -7,11 +8,17 @@ import java.time.LocalDate;
 public class PrendasDTO {
 
     private int id_prenda;
-    private Users id_usuario;
+
+    private Users id_usuario;//FK
+
     private String nombre_prenda;
+
     private String tipo_prenda;
+
     private String imagen_url;
+
     private LocalDate fecha_creacion;
+
     private LocalDate fecha_modificacion;
 
     public int getId_prenda() {

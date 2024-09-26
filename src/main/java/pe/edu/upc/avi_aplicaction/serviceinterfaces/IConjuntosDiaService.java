@@ -16,5 +16,5 @@ public interface IConjuntosDiaService {
     List<ConjuntoSemanal> buscarPorUsuario(int id_usuario);
     List<ConjuntoSemanal> buscarporIdConjunto(int id_conjunto);
 
-    List<ConjuntoSemanal> buscarPorFechaCreacion(LocalDateTime inicio, LocalDateTime fin);
+
 }

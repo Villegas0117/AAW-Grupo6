@@ -46,6 +46,7 @@ public class TendenciaServiceImplements implements ITendenciasService {
 
     @Override
     public List<Tendencia> buscarPorPopularidad(int popularidad) {
-        return tRepository.buscarPorPopularidad(popularidad);
+        return tRepository.buscarPorPopularidad();
     }
+
 }

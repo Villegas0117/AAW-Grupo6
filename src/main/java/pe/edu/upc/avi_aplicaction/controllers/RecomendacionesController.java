@@ -2,6 +2,7 @@ package pe.edu.upc.avi_aplicaction.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.avi_aplicaction.dtos.*;
 import pe.edu.upc.avi_aplicaction.entities.Recomendaciones;
@@ -18,6 +19,7 @@ public class RecomendacionesController {
     @Autowired
     private IRecomendacionesService rS;
 
+    @PreAuthorize("hasAnyAuthority('USUARIO', 'ADMINISTRADOR')")
     @PostMapping
     public void registrar(@RequestBody RecomendacionesDTO dto) {
         ModelMapper m = new ModelMapper();
@@ -25,6 +27,7 @@ public class RecomendacionesController {
         rS.insertar_Recomendacion(p);
     }
 
+    @PreAuthorize("hasAnyAuthority('USUARIO', 'ADMINISTRADOR')")
     @GetMapping
     public List<RecomendacionesDTO> listar(){
         return rS.list().stream().map(x->{
@@ -33,10 +36,12 @@ public class RecomendacionesController {
         }).collect(Collectors.toList());
     }
 
+
+    @PreAuthorize("hasAnyAuthority('USUARIO', 'ADMINISTRADOR')")
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") Integer id){rS.deleteRecomendacion(id);}
 
-
+    @PreAuthorize("hasAnyAuthority('USUARIO', 'ADMINISTRADOR')")
     @GetMapping("/{id}")
     public RecomendacionesDTO listarPorId(@PathVariable("id") Integer id){
         ModelMapper m=new ModelMapper();
@@ -44,6 +49,7 @@ public class RecomendacionesController {
         return dto;
     }
 
+    @PreAuthorize("hasAnyAuthority('USUARIO', 'ADMINISTRADOR')")
     @PutMapping
     public void modificar(@RequestBody RecomendacionesDTO dto){
         ModelMapper m=new ModelMapper();
@@ -51,14 +57,15 @@ public class RecomendacionesController {
         rS.updateRecomendacion(r);
     }
 
-    @GetMapping("/BuscarRecomendacionesPorIdUsuario")
-    public List<RecomendacionesDTO> BuscarPorUsuario(@RequestParam int idUsuario) {
-        return rS.getRecomendacionesByUserId(idUsuario).stream().map(x->{
-            ModelMapper m=new ModelMapper();
-            return m.map(x, RecomendacionesDTO.class);
-        }).collect(Collectors.toList());
-    }
+//    @GetMapping("/BuscarRecomendacionesPorIdUsuario")
+//    public List<RecomendacionesDTO> BuscarPorUsuario(@RequestParam int idUsuario) {
+//        return rS.getRecomendacionesByUserId(idUsuario).stream().map(x->{
+//            ModelMapper m=new ModelMapper();
+//            return m.map(x, RecomendacionesDTO.class);
+//        }).collect(Collectors.toList());
+//    }
 
+    @PreAuthorize("hasAnyAuthority('USUARIO', 'ADMINISTRADOR')")
     @GetMapping("/BuscarRecomendacionesPorIdTendencia")
     public List<RecomendacionesDTO> BuscarPorTendencia(@RequestParam int idTendencia) {
         return rS.getRecomendacionesByTrendId(idTendencia).stream().map(x->{
@@ -67,6 +74,7 @@ public class RecomendacionesController {
         }).collect(Collectors.toList());
     }
 
+    @PreAuthorize("hasAnyAuthority('USUARIO', 'ADMINISTRADOR')")
     @GetMapping("/TotalRecomendacionesPorIntervalo")
     public RecomendacionesPorIntervaloDTO obtenerPorIntervalo(@RequestParam LocalDate fechaInicio, @RequestParam LocalDate fechaFin) {
         // Obtén el total de recomendaciones del servicio
@@ -79,6 +87,7 @@ public class RecomendacionesController {
         return dto;
     }
 
+    @PreAuthorize("hasAnyAuthority('USUARIO', 'ADMINISTRADOR')")
     @GetMapping("/TopUsuariosConMasRecomendaciones")
     public List<ReUsuariosConMasRecomendacionesDTO> obtenerTopUsuarios(@RequestParam int topN) {
         List<String[]> lista = rS.obtenerTopNUsuariosConMasRecomendaciones(topN);
@@ -92,7 +101,7 @@ public class RecomendacionesController {
         }
         return listaDTO;
     }
-
+    @PreAuthorize("hasAnyAuthority('USUARIO', 'ADMINISTRADOR')")
     @GetMapping("/TopTendenciasConMasRecomendaciones")
     public List<ReTendenciasConMasRecomendacionesDTO> obtenerTopTendencias(@RequestParam int topN) {
         List<String[]> lista = rS.obtenerTopTendenciasConMasRecomendaciones(topN);

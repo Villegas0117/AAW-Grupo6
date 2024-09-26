@@ -3,9 +3,14 @@ package pe.edu.upc.avi_aplicaction.serviceimplements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pe.edu.upc.avi_aplicaction.entities.ConjuntoSemanal;
+import pe.edu.upc.avi_aplicaction.entities.Conjuntos;
+import pe.edu.upc.avi_aplicaction.entities.Users;
 import pe.edu.upc.avi_aplicaction.repositories.IConjuntoDiaRepository;
+import pe.edu.upc.avi_aplicaction.repositories.IConjuntosRepository;
+import pe.edu.upc.avi_aplicaction.repositories.IUsersRepository;
 import pe.edu.upc.avi_aplicaction.serviceinterfaces.IConjuntosDiaService;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -14,6 +19,12 @@ public class ConjuntoDiaServiceImplements implements IConjuntosDiaService {
 
     @Autowired
     private IConjuntoDiaRepository cDRepository;
+
+    @Autowired
+    private IUsersRepository usersRepository;
+
+    @Autowired
+    private IConjuntosRepository conjuntosRepository;
 
     @Override
     public List<ConjuntoSemanal> list() {
@@ -51,10 +62,11 @@ public class ConjuntoDiaServiceImplements implements IConjuntosDiaService {
         return cDRepository.buscarporIdConjunto(idUsuario);
     }
 
-    @Override
-    public List<ConjuntoSemanal> buscarPorFechaCreacion(LocalDateTime inicio, LocalDateTime fin) {
-        return cDRepository.findByFechaCreacionBetween(inicio, fin);
-    }
+
+
+
+
+
 
 
 }

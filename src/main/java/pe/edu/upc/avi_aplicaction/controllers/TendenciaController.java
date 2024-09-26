@@ -2,8 +2,10 @@ package pe.edu.upc.avi_aplicaction.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.avi_aplicaction.dtos.TendenciaDTO;
+import pe.edu.upc.avi_aplicaction.dtos.UsersNoPassDTO;
 import pe.edu.upc.avi_aplicaction.entities.Tendencia;
 import pe.edu.upc.avi_aplicaction.serviceinterfaces.ITendenciasService;
 
@@ -18,7 +20,7 @@ public class TendenciaController {
     private ITendenciasService service;
 
     @GetMapping
-    public List<TendenciaDTO> listar(){
+    public List<TendenciaDTO> listar() {
         return service.list().stream().map(x -> {
             ModelMapper m = new ModelMapper();
             return m.map(x, TendenciaDTO.class);
@@ -59,11 +61,5 @@ public class TendenciaController {
         }).collect(Collectors.toList());
     }
 
-    @GetMapping("/buscarMasPopulares")
-    public List<TendenciaDTO> buscarMasPopulares(@RequestParam int popularidad) {
-        return service.buscarPorPopularidad(popularidad).stream().map(x -> {
-            ModelMapper m = new ModelMapper();
-            return m.map(x, TendenciaDTO.class);
-        }).collect(Collectors.toList());
-    }
+
 }

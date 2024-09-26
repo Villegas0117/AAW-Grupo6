@@ -20,7 +20,7 @@ public interface IRecomendacionesRepository extends JpaRepository<Recomendacione
     public List<Recomendaciones> BuscarPorTendencia(@Param("idTendencia") int idTendencia);
 
     //Suma Total de Recomendaciones por Usuario
-    @Query(value = "SELECT id_usuario, COUNT(*) AS total_recomendaciones FROM recomendaciones GROUP BY id_usuario", nativeQuery = true)
+    @Query(value = "SELECT id, COUNT(*) AS total_recomendaciones FROM recomendaciones GROUP BY id", nativeQuery = true)
     List<String[]> findTotalRecomendacionesPorUsuario();
 
     // Suma Total de Recomendaciones por Tendencia

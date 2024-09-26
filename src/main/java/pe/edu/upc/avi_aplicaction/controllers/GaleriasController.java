@@ -39,9 +39,9 @@ public class GaleriasController {
 
 
     @GetMapping("/{id}")
-    public UsersDTO listarPorId(@PathVariable("id") Integer id){
+    public GaleriasDTO listarPorId(@PathVariable("id") Integer id){
         ModelMapper m=new ModelMapper();
-        UsersDTO dto=m.map(galeriasService.listGaleriaById(id),UsersDTO.class);
+        GaleriasDTO dto=m.map(galeriasService.listGaleriaById(id),GaleriasDTO.class);
         return dto;
     }
 
@@ -77,6 +77,7 @@ public class GaleriasController {
         }
         return listaDTO;
     }
+
 
 
 }

@@ -14,6 +14,7 @@ public interface IUsersRepository extends JpaRepository<Users, Long> {
 
     public Users findOneByUsername(String username);
 
+
     //BUSCAR POR NOMBRE
     @Query("select count(u.username) from Users u where u.username =:username")
     public int buscarUsername(@Param("username") String nombre);
@@ -23,6 +24,7 @@ public interface IUsersRepository extends JpaRepository<Users, Long> {
 
     @Query("SELECT d FROM Users d WHERE d.email LIKE %:email%")
     public List<Users> buscarPorEmail(@Param("email") String email);
+
 
 
 

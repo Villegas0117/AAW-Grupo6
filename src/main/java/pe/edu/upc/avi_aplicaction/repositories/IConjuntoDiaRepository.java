@@ -17,14 +17,9 @@ public interface IConjuntoDiaRepository extends JpaRepository<ConjuntoSemanal, I
     List<ConjuntoSemanal> buscarPorUsuario(@Param("id_usuario") int id_usuario);
 
     // Buscar por id_conjunto
-    @Query("SELECT cd FROM ConjuntoSemanal cd WHERE cd.id_conjunto = :id_conjunto")
+    @Query("SELECT cd FROM ConjuntoSemanal cd WHERE cd.id_Conjunto = :id_conjunto")
     List<ConjuntoSemanal> buscarporIdConjunto(@Param("id_conjunto") int id_conjunto);
 
-    // Buscar registros entre dos fechas
-    @Query("SELECT cd FROM ConjuntoSemanal cd WHERE cd.fechaCreacion BETWEEN :startDate AND :endDate")
-    List<ConjuntoSemanal> buscarporFecha(@Param("startDate") LocalDateTime startDate, @Param("endDate") LocalDateTime endDate);
 
-
-    List<ConjuntoSemanal> findByFechaCreacionBetween(LocalDateTime inicio, LocalDateTime fin);
 
 }

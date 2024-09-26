@@ -1,9 +1,14 @@
 package pe.edu.upc.avi_aplicaction.dtos;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
+import pe.edu.upc.avi_aplicaction.entities.roles;
+
 import java.time.LocalDate;
+import java.util.List;
 
 public class UsersDTO {
-    private Long id_usuario;
+    private Long id;
     private String username;
     private String email;
     private String password;
@@ -11,28 +16,13 @@ public class UsersDTO {
     private LocalDate fecha_registro;
     private LocalDate fecha_modificacion;
 
-    public String getPassword() {
-        return password;
+
+    public Long getId() {
+        return id;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public Boolean getEnabled() {
-        return enabled;
-    }
-
-    public void setEnabled(Boolean enabled) {
-        this.enabled = enabled;
-    }
-
-    public Long getId_usuario() {
-        return id_usuario;
-    }
-
-    public void setId_usuario(Long id_usuario) {
-        this.id_usuario = id_usuario;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getUsername() {
@@ -49,6 +39,22 @@ public class UsersDTO {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
     }
 
     public LocalDate getFecha_registro() {

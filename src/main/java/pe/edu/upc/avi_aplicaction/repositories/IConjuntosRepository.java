@@ -17,4 +17,7 @@ public interface IConjuntosRepository extends JpaRepository<Conjuntos, Integer>{
     //NUEVO QUERY PARA BUSCAR LOS ULTIMOS MODIFICADOS
     @Query("SELECT c FROM Conjuntos c ORDER BY c.fecha_Modificacion DESC")
     List<Conjuntos> buscarUltimosModificados();
+
+
+
 }

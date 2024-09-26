@@ -32,6 +32,7 @@ public class Prendas {
     private LocalDate fecha_modificacion;
 
 
+
     public Prendas(int id_prenda, Users id_usuario, String nombre_prenda, String tipo_prenda, String imagen_url, LocalDate fecha_creacion, LocalDate fecha_modificacion) {
         this.id_prenda = id_prenda;
         this.id_usuario = id_usuario;

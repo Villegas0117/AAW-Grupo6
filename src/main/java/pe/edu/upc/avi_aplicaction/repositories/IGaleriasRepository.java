@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import pe.edu.upc.avi_aplicaction.entities.Galerias;
 @Repository
 public interface IGaleriasRepository extends JpaRepository<Galerias, Integer>{
+
     //query para obtener la galería más reciente creada por cada usuario
     @Query(value = " SELECT u.nombre_usuario, g.nombre_galeria, MAX(g.fecha_creacion) AS ultima_galeria\n" +
             " FROM galerias g\n" +
@@ -25,6 +26,5 @@ public interface IGaleriasRepository extends JpaRepository<Galerias, Integer>{
             " GROUP BY u.nombre_usuario\n" +
             " ORDER BY total_galerias DESC;",nativeQuery = true)
     public List<String[]> GaleriaPorUsuario();
-
 
 }

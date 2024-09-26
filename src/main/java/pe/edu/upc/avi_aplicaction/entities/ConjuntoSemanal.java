@@ -3,7 +3,6 @@ package pe.edu.upc.avi_aplicaction.entities;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "conjunto_dia")
@@ -12,6 +11,11 @@ public class ConjuntoSemanal {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+
+    @ManyToOne
+    @JoinColumn(name = "id_Conjunto")
+    private Conjuntos id_Conjunto;//FK
+
     @ManyToOne
     @JoinColumn(name = "id_usuario")
     private Users id_usuario;//FK
@@ -19,9 +23,6 @@ public class ConjuntoSemanal {
     @Column(name = "fecha_creacion")
     private LocalDate fechaCreacion;
 
-    @ManyToOne
-    @JoinColumn(name = "id_conjunto")
-    private Conjuntos id_conjunto;//FK
 
     @Column(name = "diadesemana")
     private LocalDate diaDeSemana;
@@ -33,7 +34,7 @@ public class ConjuntoSemanal {
         this.id = id;
         this.id_usuario = id_usuario;
         this.fechaCreacion = fechaCreacion;
-        this.id_conjunto = id_conjunto;
+        this.id_Conjunto = id_conjunto;
         this.diaDeSemana = diaDeSemana;
     }
     // Getters y setters
@@ -63,12 +64,12 @@ public class ConjuntoSemanal {
         this.fechaCreacion = fechaCreacion;
     }
 
-    public Conjuntos getId_conjunto() {
-        return id_conjunto;
+    public Conjuntos getId_Conjunto() {
+        return id_Conjunto;
     }
 
-    public void setId_conjunto(Conjuntos id_conjunto) {
-        this.id_conjunto = id_conjunto;
+    public void setId_Conjunto(Conjuntos id_Conjunto) {
+        this.id_Conjunto = id_Conjunto;
     }
 
     public LocalDate getDiaDeSemana() {

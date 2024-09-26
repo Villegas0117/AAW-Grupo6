@@ -11,13 +11,12 @@ import java.util.List;
 
 @Service
 public class PrendasServiceImplements implements IPrendasService {
-    //Anotación Autowired que me permite inyeccion de dependencias
     @Autowired
-    private IPrendasRepository pR;//Creo una instancia para poder usar mediante pR los metodos de JPR Repository
+    private IPrendasRepository pR;
 
     @Override
     public void insertar_Prendas(Prendas prendas) {
-         pR.save(prendas);//por medio de la instancia pR se llama el metodo save que guarda nuevas prendas
+        pR.save(prendas);
     }
 
     @Override
@@ -40,7 +39,13 @@ public class PrendasServiceImplements implements IPrendasService {
         pR.save(prendas);
     }
 
+    @Override
+    public List<Prendas> prendaPorTipo(String tipo_prenda) {
+        return pR.buscarPorTipoPrenda(tipo_prenda);
+    }
 
-
-
+    @Override
+    public List<Prendas> prendaPorFecha(LocalDate fecha) {
+        return  pR.listarPorFecha(fecha);
+    }
 }

@@ -49,9 +49,9 @@ public class UsersController {
 
     @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     @GetMapping("/{id}")
-    public UsersDTO listarPorId(@PathVariable("id") Long id){
+    public UsersNoPassDTO listarPorId(@PathVariable("id") Long id){
         ModelMapper m=new ModelMapper();
-        UsersDTO dto=m.map(uR.listUserById(id),UsersDTO.class);
+        UsersNoPassDTO dto=m.map(uR.listUserById(id),UsersNoPassDTO.class);
         return dto;
     }
 
@@ -73,8 +73,5 @@ public class UsersController {
             return m.map(x, UsersDTO.class);
         }).collect(Collectors.toList());
     }
-
-
-
 
 }

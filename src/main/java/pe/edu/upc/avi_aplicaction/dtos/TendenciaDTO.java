@@ -1,18 +1,18 @@
 package pe.edu.upc.avi_aplicaction.dtos;
 
 public class TendenciaDTO {
-    private int id_tendencia;
+    private int idTendencia;
     private String nombre;
     private String descripcion;
     private String categoria;
     private int popularidad;
 
-    public int getId_tendencia() {
-        return id_tendencia;
+    public int getIdTendencia() {
+        return idTendencia;
     }
 
-    public void setId_tendencia(int id_tendencia) {
-        this.id_tendencia = id_tendencia;
+    public void setIdTendencia(int idTendencia) {
+        this.idTendencia = idTendencia;
     }
 
     public String getNombre() {
