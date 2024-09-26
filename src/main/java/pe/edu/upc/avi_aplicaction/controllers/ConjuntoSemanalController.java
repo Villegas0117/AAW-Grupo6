@@ -60,6 +60,31 @@ public class ConjuntoSemanalController {
         service.delete(id);
     }
 
+    // Consultas personalizadas
+    @PreAuthorize("hasAnyAuthority('USUARIO', 'ADMINISTRADOR')")
+    @GetMapping("/buscarPorUsuario")
+    public List<ConjuntoSemanalDTO> buscarPorUsuario(@RequestParam int id_usuario) {
+        return service.buscarPorUsuario(id_usuario).stream().map(x -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(x, ConjuntoSemanalDTO.class);
+        }).collect(Collectors.toList());
+    }
+
+    @PreAuthorize("hasAnyAuthority('USUARIO', 'ADMINISTRADOR')")
+    @GetMapping("/buscarPorIdConjunto")
+    public List<ConjuntoSemanalDTO> buscarPorIdConjunto(@RequestParam int id_conjunto) {
+        return service.buscarporIdConjunto(id_conjunto).stream().map(x -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(x, ConjuntoSemanalDTO.class);
+        }).collect(Collectors.toList());
+    }
+
+    // Query de valor: Obtener el registro mas reciente por usuario
+    @PreAuthorize("hasAnyAuthority('USUARIO', 'ADMINISTRADOR')")
+    @GetMapping("/registroRecientePorUsuario")
+    public ConjuntoSemanal obtenerRegistroMasRecientePorUsuario(@RequestParam int id_usuario) {
+        return service.obtenerRegistroMasRecientePorUsuario(id_usuario);
+    }
 
 
 

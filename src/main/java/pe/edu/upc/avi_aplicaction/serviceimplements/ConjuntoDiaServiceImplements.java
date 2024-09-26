@@ -62,6 +62,17 @@ public class ConjuntoDiaServiceImplements implements IConjuntosDiaService {
         return cDRepository.buscarporIdConjunto(idUsuario);
     }
 
+    @Override
+    public List<ConjuntoSemanal> buscarPorFechaCreacion(LocalDate inicio, LocalDate fin) {
+        return cDRepository.findByFechaCreacionBetween(inicio, fin);
+    }
+
+    // Implementacion del query de valor: Obtener el registro mas reciente por usuario
+    @Override
+    public ConjuntoSemanal obtenerRegistroMasRecientePorUsuario(int id_usuario) {
+        return cDRepository.obtenerRegistroMasRecientePorUsuario(id_usuario);
+    }
+
 
 
 
