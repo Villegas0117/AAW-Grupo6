@@ -2,6 +2,7 @@
 FROM amazoncorretto:21 AS build
 WORKDIR /app
 COPY . .
+RUN yum install -y tar  # Instalar tar
 RUN chmod +x ./mvnw  # Dar permisos de ejecución a mvnw
 RUN ./mvnw clean package -DskipTests
 
