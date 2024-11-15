@@ -1,5 +1,6 @@
 package pe.edu.upc.avi_aplicaction.controllers;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -16,10 +17,11 @@ import pe.edu.upc.avi_aplicaction.securities.JwtResponse;
 import pe.edu.upc.avi_aplicaction.securities.JwtTokenUtil;
 import pe.edu.upc.avi_aplicaction.serviceimplements.JwtUserDetailsService;
 
+
+//Clase 3
 @RestController
 @CrossOrigin
 public class JwtAuthenticationController {
-
     @Autowired
     private AuthenticationManager authenticationManager;
     @Autowired

@@ -8,16 +8,15 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import pe.edu.upc.avi_aplicaction.entities.Users;
-import pe.edu.upc.avi_aplicaction.entities.roles;
 import pe.edu.upc.avi_aplicaction.repositories.IUsersRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 
+
 //Clase 2
 @Service
 public class JwtUserDetailsService implements UserDetailsService {
-
     @Autowired
     private IUsersRepository repo;
 
@@ -40,5 +39,4 @@ public class JwtUserDetailsService implements UserDetailsService {
 
         return ud;
     }
-
 }

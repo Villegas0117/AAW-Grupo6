@@ -2,9 +2,7 @@ package pe.edu.upc.avi_aplicaction.securities;
 
 import java.io.Serializable;
 
-//Clase 4
 public class JwtRequest implements Serializable {
-
     private static final long serialVersionUID = 5926468583005150707L;
     private String username;
     private String password;
@@ -39,5 +37,4 @@ public class JwtRequest implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
-
 }

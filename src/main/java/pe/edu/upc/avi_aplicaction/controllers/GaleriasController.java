@@ -2,6 +2,7 @@ package pe.edu.upc.avi_aplicaction.controllers;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.avi_aplicaction.dtos.*;
 import pe.edu.upc.avi_aplicaction.entities.Galerias;
@@ -14,11 +15,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("(/galerias")
+@RequestMapping("galerias")
 public class GaleriasController {
     @Autowired
     private IGaleriasService galeriasService;
 
+    @PreAuthorize("hasAuthority('CREADOR')")
     @PostMapping
     public void registrar(@RequestBody GaleriasDTO dto) {
         ModelMapper m = new ModelMapper();
@@ -26,6 +28,7 @@ public class GaleriasController {
         galeriasService.insertar(p);
     }
 
+    @PreAuthorize("hasAuthority('CREADOR')")
     @GetMapping
     public List<GaleriasDTO> listar(){
         return galeriasService.list().stream().map(x->{

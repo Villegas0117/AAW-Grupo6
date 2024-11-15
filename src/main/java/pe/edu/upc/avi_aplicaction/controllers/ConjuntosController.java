@@ -18,7 +18,7 @@ public class ConjuntosController {
     @Autowired
     private IConjuntosService cs;
 
-    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
+    @PreAuthorize("hasAuthority('CREADOR')")
     @GetMapping
     public List<ConjuntosDTO> listar(){
         return cs.list().stream().map(x->{

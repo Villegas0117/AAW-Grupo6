@@ -28,6 +28,7 @@ public class PrendasController {
         pR.insertar_Prendas(p);
     }
 
+    @PreAuthorize("hasAuthority('CREADOR')")
     @GetMapping
     public List<PrendasDTO> listar(){
         return pR.list().stream().map(x->{
