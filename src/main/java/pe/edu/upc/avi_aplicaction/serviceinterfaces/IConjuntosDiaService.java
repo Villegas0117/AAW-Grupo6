@@ -21,4 +21,7 @@ public interface IConjuntosDiaService {
 
     // Query de valor: Obtener el registro mas reciente por usuario
     ConjuntoSemanal obtenerRegistroMasRecientePorUsuario(int id_usuario);
+
+    public List<String[]> ConjuntosPorUsuario();
+    public List<String[]> ConjuntosPorDiaDeSemana();
 }

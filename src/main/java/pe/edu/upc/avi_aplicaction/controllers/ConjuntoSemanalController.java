@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import pe.edu.upc.avi_aplicaction.dtos.ConjuntoDiaSemanaDTO;
+import pe.edu.upc.avi_aplicaction.dtos.ConjuntoPorUsuarioDTO;
 import pe.edu.upc.avi_aplicaction.dtos.ConjuntoSemanalDTO;
 import pe.edu.upc.avi_aplicaction.entities.ConjuntoSemanal;
 import pe.edu.upc.avi_aplicaction.serviceinterfaces.IConjuntosDiaService;
@@ -12,6 +14,7 @@ import pe.edu.upc.avi_aplicaction.serviceinterfaces.IConjuntosDiaService;
 
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -84,6 +87,32 @@ public class ConjuntoSemanalController {
     @GetMapping("/registroRecientePorUsuario")
     public ConjuntoSemanal obtenerRegistroMasRecientePorUsuario(@RequestParam int id_usuario) {
         return service.obtenerRegistroMasRecientePorUsuario(id_usuario);
+    }
+
+    @GetMapping("/conjuntosporusuariosemanal")
+    public List<ConjuntoPorUsuarioDTO> conjuntoporusuario(){
+        List<String[]> lista=service.ConjuntosPorUsuario();
+        List<ConjuntoPorUsuarioDTO>listaDTO=new ArrayList<>();
+        for(String[] columna:lista){
+            ConjuntoPorUsuarioDTO dto=new ConjuntoPorUsuarioDTO();
+            dto.setUsername(columna[0]);
+            dto.setTotal_conjuntos(Integer.parseInt(columna[1]));
+            listaDTO.add(dto);
+        }
+        return listaDTO;
+    }
+
+    @GetMapping("/conjuntospordiasemanal")
+    public List<ConjuntoDiaSemanaDTO> conjuntopordiasemanal(){
+        List<String[]> lista= service.ConjuntosPorDiaDeSemana();
+        List<ConjuntoDiaSemanaDTO>listaDTO=new ArrayList<>();
+        for(String[] columna:lista){
+            ConjuntoDiaSemanaDTO dto=new ConjuntoDiaSemanaDTO();
+            dto.setNombreconjunto(columna[0]);
+            dto.setTotalDias(Integer.parseInt(columna[1]));
+            listaDTO.add(dto);
+        }
+        return listaDTO;
     }
 
 

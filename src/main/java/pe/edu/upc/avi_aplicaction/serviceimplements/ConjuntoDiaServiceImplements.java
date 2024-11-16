@@ -73,6 +73,16 @@ public class ConjuntoDiaServiceImplements implements IConjuntosDiaService {
         return cDRepository.obtenerRegistroMasRecientePorUsuario(id_usuario);
     }
 
+    @Override
+    public List<String[]> ConjuntosPorUsuario() {
+        return cDRepository.ConjuntosPorUsuario();
+    }
+
+    @Override
+    public List<String[]> ConjuntosPorDiaDeSemana() {
+        return cDRepository.ConjuntosPorDiaDeSemana();
+    }
+
 
 
 

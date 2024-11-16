@@ -27,6 +27,7 @@ pe\edu\upc\avi_aplicaction\dtos\PrendasDTO.class
 pe\edu\upc\avi_aplicaction\repositories\IRecomendacionesRepository.class
 pe\edu\upc\avi_aplicaction\util\CORS.class
 pe\edu\upc\avi_aplicaction\repositories\IConjuntosRepository.class
+pe\edu\upc\avi_aplicaction\dtos\ConjuntoDiaSemanaDTO.class
 pe\edu\upc\avi_aplicaction\serviceinterfaces\ITendenciasService.class
 pe\edu\upc\avi_aplicaction\dtos\TendenciaDTO.class
 pe\edu\upc\avi_aplicaction\dtos\UsersNoPassDTO.class
@@ -42,6 +43,7 @@ pe\edu\upc\avi_aplicaction\dtos\GaleriaTotalUsuarioDTO.class
 pe\edu\upc\avi_aplicaction\serviceimplements\UsersServiceImplements.class
 pe\edu\upc\avi_aplicaction\serviceinterfaces\IGaleriasService.class
 pe\edu\upc\avi_aplicaction\controllers\ConjuntoSemanalController.class
+pe\edu\upc\avi_aplicaction\dtos\ConjuntoPorUsuarioDTO.class
 pe\edu\upc\avi_aplicaction\securities\WebSecurityConfig.class
 pe\edu\upc\avi_aplicaction\serviceinterfaces\IConjuntosDiaService.class
 pe\edu\upc\avi_aplicaction\serviceimplements\RolesServiceImplements.class
