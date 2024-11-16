@@ -22,8 +22,8 @@ public class Prendas {
     @Column(name = "tipo_prenda", nullable = false, length = 255)
     private String tipo_prenda;
 
-    @Column(name = "imagen", nullable = false)
-    private Byte imagen;
+    @Column(name = "imagen")
+    private Byte[] imagen;
 
     @Column(name = "fecha_creacion", nullable = false)
     private LocalDate fecha_creacion;
@@ -32,7 +32,10 @@ public class Prendas {
     private LocalDate fecha_modificacion;
 
 
-    public Prendas(int id_prenda, Users id_usuario, String nombre_prenda, String tipo_prenda, Byte imagen, LocalDate fecha_creacion, LocalDate fecha_modificacion) {
+    public Prendas() {
+    }
+
+    public Prendas(int id_prenda, Users id_usuario, String nombre_prenda, String tipo_prenda, Byte[] imagen, LocalDate fecha_creacion, LocalDate fecha_modificacion) {
         this.id_prenda = id_prenda;
         this.id_usuario = id_usuario;
         this.nombre_prenda = nombre_prenda;
@@ -40,9 +43,6 @@ public class Prendas {
         this.imagen = imagen;
         this.fecha_creacion = fecha_creacion;
         this.fecha_modificacion = fecha_modificacion;
-    }
-
-    public Prendas() {
     }
 
     public int getId_prenda() {
@@ -77,11 +77,11 @@ public class Prendas {
         this.tipo_prenda = tipo_prenda;
     }
 
-    public Byte getImagen() {
+    public Byte[] getImagen() {
         return imagen;
     }
 
-    public void setImagen(Byte imagen) {
+    public void setImagen(Byte[] imagen) {
         this.imagen = imagen;
     }
 

@@ -19,7 +19,7 @@ public class PrendasDTO {
     private String tipo_prenda;
 
 
-    private Byte imagen;
+    private Byte []imagen;
 
 
     private LocalDate fecha_creacion;
@@ -59,11 +59,11 @@ public class PrendasDTO {
         this.tipo_prenda = tipo_prenda;
     }
 
-    public Byte getImagen() {
+    public Byte[] getImagen() {
         return imagen;
     }
 
-    public void setImagen(Byte imagen) {
+    public void setImagen(Byte[] imagen) {
         this.imagen = imagen;
     }
 
