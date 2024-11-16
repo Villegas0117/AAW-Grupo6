@@ -9,15 +9,21 @@ public class PrendasDTO {
 
     private int id_prenda;
 
+
     private Users id_usuario;//FK
+
 
     private String nombre_prenda;
 
+
     private String tipo_prenda;
 
-    private String imagen_url;
+
+    private Byte imagen;
+
 
     private LocalDate fecha_creacion;
+
 
     private LocalDate fecha_modificacion;
 
@@ -53,12 +59,12 @@ public class PrendasDTO {
         this.tipo_prenda = tipo_prenda;
     }
 
-    public String getImagen_url() {
-        return imagen_url;
+    public Byte getImagen() {
+        return imagen;
     }
 
-    public void setImagen_url(String imagen_url) {
-        this.imagen_url = imagen_url;
+    public void setImagen(Byte imagen) {
+        this.imagen = imagen;
     }
 
     public LocalDate getFecha_creacion() {

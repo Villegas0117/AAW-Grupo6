@@ -16,29 +16,28 @@ public class Prendas {
     @JoinColumn(name = "id_usuario")
     private Users id_usuario;//FK
 
-    @Column(name="nombre_prenda",nullable = false,length = 100)
+    @Column(name = "nombre_prenda", nullable = false, length = 100)
     private String nombre_prenda;
 
-    @Column(name = "tipo_prenda",nullable = false,length = 255)
+    @Column(name = "tipo_prenda", nullable = false, length = 255)
     private String tipo_prenda;
 
-    @Column(name = "imagen_url",nullable = false)
-    private String imagen_url;
+    @Column(name = "imagen", nullable = false)
+    private Byte imagen;
 
-    @Column(name = "fecha_creacion",nullable = false)
+    @Column(name = "fecha_creacion", nullable = false)
     private LocalDate fecha_creacion;
 
-    @Column(name = "fecha_modificacion",nullable = false)
+    @Column(name = "fecha_modificacion", nullable = false)
     private LocalDate fecha_modificacion;
 
 
-
-    public Prendas(int id_prenda, Users id_usuario, String nombre_prenda, String tipo_prenda, String imagen_url, LocalDate fecha_creacion, LocalDate fecha_modificacion) {
+    public Prendas(int id_prenda, Users id_usuario, String nombre_prenda, String tipo_prenda, Byte imagen, LocalDate fecha_creacion, LocalDate fecha_modificacion) {
         this.id_prenda = id_prenda;
         this.id_usuario = id_usuario;
         this.nombre_prenda = nombre_prenda;
         this.tipo_prenda = tipo_prenda;
-        this.imagen_url = imagen_url;
+        this.imagen = imagen;
         this.fecha_creacion = fecha_creacion;
         this.fecha_modificacion = fecha_modificacion;
     }
@@ -78,12 +77,12 @@ public class Prendas {
         this.tipo_prenda = tipo_prenda;
     }
 
-    public String getImagen_url() {
-        return imagen_url;
+    public Byte getImagen() {
+        return imagen;
     }
 
-    public void setImagen_url(String imagen_url) {
-        this.imagen_url = imagen_url;
+    public void setImagen(Byte imagen) {
+        this.imagen = imagen;
     }
 
     public LocalDate getFecha_creacion() {
