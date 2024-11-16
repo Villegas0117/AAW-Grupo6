@@ -9,6 +9,9 @@ COPY .mvn/ .mvn/
 COPY mvnw .
 COPY pom.xml .
 
+# Asegura que el archivo mvnw tenga permisos de ejecución
+RUN chmod +x mvnw
+
 # Descarga las dependencias sin compilar
 RUN ./mvnw dependency:go-offline -B
 
