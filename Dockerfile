@@ -4,6 +4,9 @@ FROM amazoncorretto:21 AS build
 # Establece el directorio de trabajo para la compilación
 WORKDIR /app
 
+# Instala herramientas necesarias como tar
+RUN yum install -y tar
+
 # Copia los archivos necesarios para ejecutar Maven Wrapper
 COPY .mvn/ .mvn/
 COPY mvnw .
