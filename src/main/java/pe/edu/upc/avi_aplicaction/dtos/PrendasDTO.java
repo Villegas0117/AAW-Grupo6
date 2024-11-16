@@ -1,6 +1,6 @@
 package pe.edu.upc.avi_aplicaction.dtos;
 
-import jakarta.persistence.*;
+
 import pe.edu.upc.avi_aplicaction.entities.Users;
 
 import java.time.LocalDate;
@@ -15,7 +15,7 @@ public class PrendasDTO {
 
     private String tipo_prenda;
 
-    private String imagen_url;
+    private byte [] imagen;
 
     private LocalDate fecha_creacion;
 
@@ -53,12 +53,12 @@ public class PrendasDTO {
         this.tipo_prenda = tipo_prenda;
     }
 
-    public String getImagen_url() {
-        return imagen_url;
+    public byte[] getImagen() {
+        return imagen;
     }
 
-    public void setImagen_url(String imagen_url) {
-        this.imagen_url = imagen_url;
+    public void setImagen(byte[] imagen) {
+        this.imagen = imagen;
     }
 
     public LocalDate getFecha_creacion() {
