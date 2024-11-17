@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.avi_aplicaction.dtos.ConjuntosDTO;
+import pe.edu.upc.avi_aplicaction.dtos.RolesDTO;
 import pe.edu.upc.avi_aplicaction.entities.Conjuntos;
 import pe.edu.upc.avi_aplicaction.serviceinterfaces.IConjuntosService;
 
@@ -34,19 +35,21 @@ public class ConjuntosController {
         cs.insert(c);
     }
 
+    @PreAuthorize("hasAuthority('CREADOR')")
     @GetMapping("/{id}")
-    public ConjuntosDTO listarId(Integer id){
+    public ConjuntosDTO listarId(@PathVariable("id") Integer id){
         ModelMapper m = new ModelMapper();
         ConjuntosDTO dto=m.map(cs.listId(id),ConjuntosDTO.class);
         return dto;
     }
+
+
     @PutMapping
     public void modificar(@RequestBody ConjuntosDTO dto) {
         ModelMapper m = new ModelMapper();
         Conjuntos c = m.map(dto, Conjuntos.class);
         cs.update(c);
     }
-
     @GetMapping("/buscarConjunto")
     public List<ConjuntosDTO> buscar(@RequestParam String nombreConjunto) {
         return cs.buscar(nombreConjunto).stream().map(x->{

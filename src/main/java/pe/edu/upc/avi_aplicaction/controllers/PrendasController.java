@@ -5,7 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.avi_aplicaction.dtos.PrendasDTO;
+import pe.edu.upc.avi_aplicaction.dtos.RolesDTO;
 import pe.edu.upc.avi_aplicaction.entities.Prendas;
+import pe.edu.upc.avi_aplicaction.entities.roles;
 import pe.edu.upc.avi_aplicaction.serviceinterfaces.IPrendasService;
 
 
@@ -27,6 +29,8 @@ public class PrendasController {
         Prendas p = m.map(dto, Prendas.class);
         pR.insertar_Prendas(p);
     }
+
+
 
     @PreAuthorize("hasAuthority('CREADOR')")
     @GetMapping
