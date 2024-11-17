@@ -23,7 +23,7 @@ public class UsersController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
+    @PreAuthorize("hasAnyAuthority('ADMINISTRADOR','CREADOR')")
     @PostMapping
     public void registrar(@RequestBody UsersDTO dto) {
         ModelMapper m = new ModelMapper();
@@ -33,7 +33,7 @@ public class UsersController {
         uR.insertUser(u);
     }
 
-    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
+    @PreAuthorize("hasAnyAuthority('ADMINISTRADOR','CREADOR')")
     @GetMapping
     public List<UsersNoPassDTO> listar(){
         return uR.list().stream().map(x->{
@@ -43,11 +43,11 @@ public class UsersController {
     }
 
 
-    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
+    @PreAuthorize("hasAnyAuthority('ADMINISTRADOR','CREADOR')")
     @DeleteMapping("/{id}")
     public void eliminar(@PathVariable("id") Long id){uR.deleteUser(id);}
 
-    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
+    @PreAuthorize("hasAnyAuthority('ADMINISTRADOR','CREADOR')")
     @GetMapping("/{id}")
     public UsersNoPassDTO listarPorId(@PathVariable("id") Long id){
         ModelMapper m=new ModelMapper();
