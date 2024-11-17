@@ -16,25 +16,36 @@ public class Prendas {
     @JoinColumn(name = "id_usuario")
     private Users id_usuario;//FK
 
-    @Column(name="nombre_prenda",nullable = false,length = 100)
+    @Column(name = "nombre_prenda", nullable = false, length = 100)
     private String nombre_prenda;
 
-    @Column(name = "tipo_prenda",nullable = false,length = 255)
+    @Column(name = "tipo_prenda", nullable = false, length = 255)
     private String tipo_prenda;
 
     @Column(name = "imagen")
+<<<<<<< HEAD
     private byte [] imagen;
+=======
+    private Byte[] imagen;
+>>>>>>> bd7e8f93145d7483fcb01d510b533a5ab1fe9545
 
-    @Column(name = "fecha_creacion",nullable = false)
+    @Column(name = "fecha_creacion", nullable = false)
     private LocalDate fecha_creacion;
 
-    @Column(name = "fecha_modificacion",nullable = false)
+    @Column(name = "fecha_modificacion", nullable = false)
     private LocalDate fecha_modificacion;
 
     public Prendas() {
     }
 
+<<<<<<< HEAD
     public Prendas(int id_prenda, Users id_usuario, String nombre_prenda, String tipo_prenda, byte[] imagen, LocalDate fecha_creacion, LocalDate fecha_modificacion) {
+=======
+    public Prendas() {
+    }
+
+    public Prendas(int id_prenda, Users id_usuario, String nombre_prenda, String tipo_prenda, Byte[] imagen, LocalDate fecha_creacion, LocalDate fecha_modificacion) {
+>>>>>>> bd7e8f93145d7483fcb01d510b533a5ab1fe9545
         this.id_prenda = id_prenda;
         this.id_usuario = id_usuario;
         this.nombre_prenda = nombre_prenda;
@@ -76,11 +87,19 @@ public class Prendas {
         this.tipo_prenda = tipo_prenda;
     }
 
+<<<<<<< HEAD
     public byte[] getImagen() {
         return imagen;
     }
 
     public void setImagen(byte[] imagen) {
+=======
+    public Byte[] getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(Byte[] imagen) {
+>>>>>>> bd7e8f93145d7483fcb01d510b533a5ab1fe9545
         this.imagen = imagen;
     }
 

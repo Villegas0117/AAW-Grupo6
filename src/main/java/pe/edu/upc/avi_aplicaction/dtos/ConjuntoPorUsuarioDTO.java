@@ -19,5 +19,8 @@ public class ConjuntoPorUsuarioDTO {
     public void setTotal_conjuntos(int total_conjuntos) {
         this.total_conjuntos = total_conjuntos;
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> bd7e8f93145d7483fcb01d510b533a5ab1fe9545
 }

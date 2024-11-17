@@ -9,15 +9,25 @@ public class PrendasDTO {
 
     private int id_prenda;
 
+
     private Users id_usuario;//FK
+
 
     private String nombre_prenda;
 
+
     private String tipo_prenda;
 
+<<<<<<< HEAD
     private byte [] imagen;
+=======
+
+    private Byte []imagen;
+
+>>>>>>> bd7e8f93145d7483fcb01d510b533a5ab1fe9545
 
     private LocalDate fecha_creacion;
+
 
     private LocalDate fecha_modificacion;
 
@@ -53,11 +63,19 @@ public class PrendasDTO {
         this.tipo_prenda = tipo_prenda;
     }
 
+<<<<<<< HEAD
     public byte[] getImagen() {
         return imagen;
     }
 
     public void setImagen(byte[] imagen) {
+=======
+    public Byte[] getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(Byte[] imagen) {
+>>>>>>> bd7e8f93145d7483fcb01d510b533a5ab1fe9545
         this.imagen = imagen;
     }
 
