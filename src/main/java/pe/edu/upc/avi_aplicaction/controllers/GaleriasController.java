@@ -55,6 +55,7 @@ public class GaleriasController {
         galeriasService.updateGalerias(p);
     }
 
+    @PreAuthorize("hasAnyAuthority('ADMINISTRADOR')")
     @GetMapping("/galeríaReciente")
     public List<GaleriaUserDTO> galeriareciente(){
         List<String[]> lista=galeriasService.GaleriaMasReciente();
@@ -68,6 +69,8 @@ public class GaleriasController {
         }
         return listaDTO;
     }
+
+    @PreAuthorize("hasAnyAuthority('ADMINISTRADOR')")
     @GetMapping("/galeríaPorUsuario")
     public List<GaleriaTotalUsuarioDTO> galeriaporusuario(){
         List<String[]> lista=galeriasService.GaleriaPorUsuario();
