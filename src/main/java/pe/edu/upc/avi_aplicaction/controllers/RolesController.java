@@ -29,8 +29,16 @@ public class RolesController {
             return m.map(x, RolesDTO.class);
         }).collect(Collectors.toList());
     }
+
     @PostMapping
     public void registrar(@RequestBody RolesDTO dto) {
+        ModelMapper m = new ModelMapper();
+        roles d = m.map(dto, roles.class);
+        rR.insert(d);
+    }
+
+    @PostMapping("/NoAuth")
+    public void registrarNoAuth(@RequestBody RolesDTO dto) {
         ModelMapper m = new ModelMapper();
         roles d = m.map(dto, roles.class);
         rR.insert(d);

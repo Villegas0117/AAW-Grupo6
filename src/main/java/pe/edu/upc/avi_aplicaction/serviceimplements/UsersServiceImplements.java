@@ -46,6 +46,10 @@ public class UsersServiceImplements implements IUsersService {
         return uR.buscarPorEmail(email);
     }
 
+    @Override
+    public List<Users> searchByMail(String email) {
+        return uR.buscarPorEmail2(email);
+    }
 
 
 }

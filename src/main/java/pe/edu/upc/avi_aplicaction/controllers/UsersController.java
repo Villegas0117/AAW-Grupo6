@@ -33,6 +33,16 @@ public class UsersController {
         uR.insertUser(u);
     }
 
+    @PostMapping("/NoAuth")
+    public void registrarNoAuth(@RequestBody UsersDTO dto) {
+        ModelMapper m = new ModelMapper();
+        Users u = m.map(dto, Users.class);
+        String encodedPassword = passwordEncoder.encode(u.getPassword());
+        u.setPassword(encodedPassword);
+        uR.insertUser(u);
+    }
+
+
     @PreAuthorize("hasAnyAuthority('ADMINISTRADOR','CREADOR')")
     @GetMapping
     public List<UsersNoPassDTO> listar(){
@@ -73,5 +83,14 @@ public class UsersController {
             return m.map(x, UsersDTO.class);
         }).collect(Collectors.toList());
     }
+
+    @GetMapping("/NoAuth/{email}")
+    public List<UsersNoPassDTO> buscarUsuarioNoAuth(@PathVariable String email){
+        return uR.searchUser(email).stream().map(x->{
+            ModelMapper m=new ModelMapper();
+            return m.map(x, UsersNoPassDTO.class);
+        }).collect(Collectors.toList());
+    }
+
 
 }
