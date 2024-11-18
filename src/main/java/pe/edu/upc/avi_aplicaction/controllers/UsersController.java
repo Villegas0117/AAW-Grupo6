@@ -23,6 +23,16 @@ public class UsersController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    @PostMapping("/registroNoAuth")
+    public void registrarNoAuth(@RequestBody UsersDTO dto) {
+        ModelMapper m = new ModelMapper();
+        Users u = m.map(dto, Users.class);
+        String encodedPassword = passwordEncoder.encode(u.getPassword());
+        u.setPassword(encodedPassword);
+        uR.insertUser(u);
+    }
+
+
     @PreAuthorize("hasAnyAuthority('ADMINISTRADOR','CREADOR')")
     @PostMapping
     public void registrar(@RequestBody UsersDTO dto) {
@@ -33,14 +43,6 @@ public class UsersController {
         uR.insertUser(u);
     }
 
-    @PostMapping("/signUp")
-    public void registrarNoAuth(@RequestBody UsersDTO dto) {
-        ModelMapper m = new ModelMapper();
-        Users u = m.map(dto, Users.class);
-        String encodedPassword = passwordEncoder.encode(u.getPassword());
-        u.setPassword(encodedPassword);
-        uR.insertUser(u);
-    }
 
 
     @PreAuthorize("hasAnyAuthority('ADMINISTRADOR','CREADOR')")
