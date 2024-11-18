@@ -33,7 +33,7 @@ public class UsersController {
         uR.insertUser(u);
     }
 
-    @PostMapping("/NoAuth")
+    @PostMapping("/signUp")
     public void registrarNoAuth(@RequestBody UsersDTO dto) {
         ModelMapper m = new ModelMapper();
         Users u = m.map(dto, Users.class);

@@ -64,7 +64,9 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests(req -> req
                         .requestMatchers(antMatcher("/login")).permitAll()
                         .requestMatchers(antMatcher("/roles/NoAuth")).permitAll()
-                        .requestMatchers(antMatcher("/usuarios/NoAuth/**")).permitAll() // Agregado
+                        .requestMatchers(antMatcher("/usuarios/NoAuth/**")).permitAll()
+                                .requestMatchers(antMatcher("/usuarios/signUp")).permitAll()
+
                         .anyRequest().authenticated()
                 )
                 .httpBasic(Customizer.withDefaults())
