@@ -63,10 +63,8 @@ public class WebSecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(req -> req
                         .requestMatchers(antMatcher("/login")).permitAll()
-                        .requestMatchers(antMatcher("/roles/NoAuth")).permitAll()
-                        .requestMatchers(antMatcher("/usuarios/NoAuth/**")).permitAll()
-                        .requestMatchers(antMatcher("/usuarios/registroNoAuth")).permitAll()
                         .requestMatchers(antMatcher("/usuarios/create")).permitAll()
+                        .requestMatchers(antMatcher("/recomendaciones/TopUsuariosConMasRecomendaciones")).permitAll()
                         .anyRequest().authenticated()
                 )
                 .httpBasic(Customizer.withDefaults())

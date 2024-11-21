@@ -102,7 +102,6 @@ public class RecomendacionesController {
         return listaDTO;
     }
 
-    //@PreAuthorize("hasAnyAuthority('CREADOR', 'ADMINISTRADOR')")
     @GetMapping("/TopTendenciasConMasRecomendaciones")
     public List<ReTendenciasConMasRecomendacionesDTO> obtenerTopTendencias(@RequestParam int topN) {
         List<String[]> lista = rS.obtenerTopTendenciasConMasRecomendaciones(topN);
