@@ -1,8 +1,8 @@
 package pe.edu.upc.avi_aplicaction.controllers;
 
-
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
@@ -12,11 +12,14 @@ import pe.edu.upc.avi_aplicaction.entities.Users;
 import pe.edu.upc.avi_aplicaction.serviceinterfaces.IUsersService;
 
 import java.util.List;
+
 import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/usuarios")
 public class UsersController {
+
+
     @Autowired
     private IUsersService uR;
 
@@ -53,6 +56,7 @@ public class UsersController {
             return m.map(x, UsersNoPassDTO.class);
         }).collect(Collectors.toList());
     }
+
 
 
     @PreAuthorize("hasAnyAuthority('ADMINISTRADOR','CREADOR')")
@@ -92,6 +96,20 @@ public class UsersController {
             ModelMapper m=new ModelMapper();
             return m.map(x, UsersNoPassDTO.class);
         }).collect(Collectors.toList());
+    }
+
+    @PostMapping("/create")
+    public ResponseEntity<String> createUser(@RequestBody UsersDTO dto) {
+        ModelMapper mapper = new ModelMapper();
+        Users user = mapper.map(dto, Users.class);
+
+        // Codificar la contraseña
+        String encodedPassword = passwordEncoder.encode(user.getPassword());
+
+        // Llamar al procedimiento almacenado a través del repositorio
+        uR.insertarUsuarioConRol(user.getEmail(), encodedPassword, user.getUsername());
+
+        return ResponseEntity.ok("Usuario creado con rol correctamente");
     }
 
 

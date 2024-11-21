@@ -51,5 +51,10 @@ public class UsersServiceImplements implements IUsersService {
         return uR.buscarPorEmail2(email);
     }
 
+    @Override
+    public void insertarUsuarioConRol(String email, String password, String username) {
+        uR.insertarUsuarioConRol(email,password,username);
+    }
+
 
 }

@@ -22,6 +22,7 @@ public class Users implements Serializable {
     @Column(unique = true, nullable = false)
     private String email;
 
+
     private String password;
     private Boolean enabled;
 

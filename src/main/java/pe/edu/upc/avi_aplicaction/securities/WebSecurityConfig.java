@@ -66,6 +66,7 @@ public class WebSecurityConfig {
                         .requestMatchers(antMatcher("/roles/NoAuth")).permitAll()
                         .requestMatchers(antMatcher("/usuarios/NoAuth/**")).permitAll()
                         .requestMatchers(antMatcher("/usuarios/registroNoAuth")).permitAll()
+                        .requestMatchers(antMatcher("/usuarios/create")).permitAll()
                         .anyRequest().authenticated()
                 )
                 .httpBasic(Customizer.withDefaults())
