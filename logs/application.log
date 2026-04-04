@@ -1,0 +1,170 @@
+2026-04-04 17:29:09.085 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-04 17:29:09.088 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-04 17:29:09.096 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-04-04 17:29:10.709 [restartedMain] INFO  p.e.u.a.AviAplicactionApplication - Starting AviAplicactionApplication using Java 22.0.2 with PID 59056 (/home/ebervillegas/proyectosDesarrollo/AVI/AAW-Grupo6/target/classes started by ebervillegas in /home/ebervillegas/proyectosDesarrollo/AVI/AAW-Grupo6)
+2026-04-04 17:29:10.710 [restartedMain] DEBUG p.e.u.a.AviAplicactionApplication - Running with Spring Boot v3.3.3, Spring v6.1.12
+2026-04-04 17:29:10.711 [restartedMain] INFO  p.e.u.a.AviAplicactionApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-04 17:29:10.739 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-04-04 17:29:10.739 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-04-04 17:29:11.227 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-04 17:29:11.267 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 36 ms. Found 8 JPA repository interfaces.
+2026-04-04 17:29:11.609 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-04 17:29:11.618 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-04 17:29:11.618 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2026-04-04 17:29:11.643 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-04 17:29:11.643 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 904 ms
+2026-04-04 17:29:11.668 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-04 17:29:11.850 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@79d7bbee
+2026-04-04 17:29:11.851 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-04 17:29:11.859 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost/avi_db'
+2026-04-04 17:29:11.923 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-04 17:29:11.946 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2026-04-04 17:29:11.962 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-04-04 17:29:12.118 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-04 17:29:12.146 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-04 17:29:12.684 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-04 17:29:12.776 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-04 17:29:12.896 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-04 17:29:13.179 [restartedMain] DEBUG p.e.u.a.securities.JwtRequestFilter - Filter 'jwtRequestFilter' configured for use
+2026-04-04 17:29:13.338 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-04 17:29:13.442 [restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2026-04-04 17:29:13.858 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2026-04-04 17:29:13.880 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-04-04 17:29:13.886 [restartedMain] INFO  p.e.u.a.AviAplicactionApplication - Started AviAplicactionApplication in 3.457 seconds (process running for 3.963)
+2026-04-04 17:29:28.591 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-04 17:29:28.591 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-04-04 17:29:28.592 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-04-04 17:29:28.605 [http-nio-8080-exec-1] WARN  p.e.u.a.securities.JwtRequestFilter - JWT Token no inicia con la palabra Bearer
+2026-04-04 17:29:49.117 [http-nio-8080-exec-3] WARN  p.e.u.a.securities.JwtRequestFilter - JWT Token no inicia con la palabra Bearer
+2026-04-04 17:39:19.515 [File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2026-04-04 17:39:19.524 [Thread-5] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-04 17:39:19.527 [Thread-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-04 17:39:19.532 [Thread-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-04-04 17:39:48.108 [restartedMain] INFO  p.e.u.a.AviAplicactionApplication - Starting AviAplicactionApplication using Java 22.0.2 with PID 60051 (/home/ebervillegas/proyectosDesarrollo/AVI/AAW-Grupo6/target/classes started by ebervillegas in /home/ebervillegas/proyectosDesarrollo/AVI/AAW-Grupo6)
+2026-04-04 17:39:48.110 [restartedMain] DEBUG p.e.u.a.AviAplicactionApplication - Running with Spring Boot v3.3.3, Spring v6.1.12
+2026-04-04 17:39:48.111 [restartedMain] INFO  p.e.u.a.AviAplicactionApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-04 17:39:48.140 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-04-04 17:39:48.141 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-04-04 17:39:48.625 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-04 17:39:48.663 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 33 ms. Found 8 JPA repository interfaces.
+2026-04-04 17:39:49.007 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-04 17:39:49.015 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-04 17:39:49.015 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2026-04-04 17:39:49.041 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-04 17:39:49.041 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 900 ms
+2026-04-04 17:39:49.062 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-04 17:39:49.241 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@1796fa43
+2026-04-04 17:39:49.242 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-04 17:39:49.249 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost/avi_db'
+2026-04-04 17:39:49.320 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-04 17:39:49.345 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2026-04-04 17:39:49.364 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-04-04 17:39:49.513 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-04 17:39:49.537 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-04 17:39:50.092 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-04 17:39:50.195 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-04 17:39:50.333 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-04 17:39:50.625 [restartedMain] DEBUG p.e.u.a.securities.JwtRequestFilter - Filter 'jwtRequestFilter' configured for use
+2026-04-04 17:39:50.794 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-04 17:39:50.896 [restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2026-04-04 17:39:51.326 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2026-04-04 17:39:51.348 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-04-04 17:39:51.354 [restartedMain] INFO  p.e.u.a.AviAplicactionApplication - Started AviAplicactionApplication in 3.522 seconds (process running for 3.985)
+2026-04-04 17:39:59.429 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-04 17:39:59.429 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-04-04 17:39:59.430 [http-nio-8080-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-04-04 17:39:59.443 [http-nio-8080-exec-2] WARN  p.e.u.a.securities.JwtRequestFilter - JWT Token no inicia con la palabra Bearer
+2026-04-04 17:42:57.878 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-04 17:42:57.881 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-04 17:42:57.888 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-04-04 17:43:00.326 [restartedMain] INFO  p.e.u.a.AviAplicactionApplication - Starting AviAplicactionApplication using Java 22.0.2 with PID 60960 (/home/ebervillegas/proyectosDesarrollo/AVI/AAW-Grupo6/target/classes started by ebervillegas in /home/ebervillegas/proyectosDesarrollo/AVI/AAW-Grupo6)
+2026-04-04 17:43:00.327 [restartedMain] DEBUG p.e.u.a.AviAplicactionApplication - Running with Spring Boot v3.3.3, Spring v6.1.12
+2026-04-04 17:43:00.328 [restartedMain] INFO  p.e.u.a.AviAplicactionApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-04 17:43:00.355 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-04-04 17:43:00.355 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-04-04 17:43:00.846 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-04 17:43:00.890 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 40 ms. Found 8 JPA repository interfaces.
+2026-04-04 17:43:01.230 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-04 17:43:01.238 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-04 17:43:01.239 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2026-04-04 17:43:01.262 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-04 17:43:01.262 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 907 ms
+2026-04-04 17:43:01.288 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-04 17:43:01.464 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@62bb22df
+2026-04-04 17:43:01.465 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-04 17:43:01.472 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost/avi_db'
+2026-04-04 17:43:01.544 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-04 17:43:01.569 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2026-04-04 17:43:01.587 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-04-04 17:43:01.739 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-04 17:43:01.763 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-04 17:43:02.297 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-04 17:43:02.431 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-04 17:43:02.557 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-04 17:43:02.833 [restartedMain] DEBUG p.e.u.a.securities.JwtRequestFilter - Filter 'jwtRequestFilter' configured for use
+2026-04-04 17:43:02.990 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-04 17:43:03.096 [restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2026-04-04 17:43:03.513 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2026-04-04 17:43:03.537 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-04-04 17:43:03.543 [restartedMain] INFO  p.e.u.a.AviAplicactionApplication - Started AviAplicactionApplication in 3.472 seconds (process running for 3.922)
+2026-04-04 17:43:13.823 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-04 17:43:13.824 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-04-04 17:43:13.825 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-04-04 17:43:13.842 [http-nio-8080-exec-1] WARN  p.e.u.a.securities.JwtRequestFilter - JWT Token no inicia con la palabra Bearer
+2026-04-04 17:43:13.908 [http-nio-8080-exec-1] INFO  p.e.u.a.c.JwtAuthenticationController - === INTENTO DE LOGIN ===
+2026-04-04 17:43:13.908 [http-nio-8080-exec-1] INFO  p.e.u.a.c.JwtAuthenticationController - IP Cliente: 0:0:0:0:0:0:0:1
+2026-04-04 17:43:13.908 [http-nio-8080-exec-1] INFO  p.e.u.a.c.JwtAuthenticationController - Username: Administrador
+2026-04-04 17:43:14.176 [http-nio-8080-exec-1] INFO  p.e.u.a.c.JwtAuthenticationController - ✅ LOGIN EXITOSO - Usuario: Administrador desde IP: 0:0:0:0:0:0:0:1
+2026-04-04 17:43:34.858 [http-nio-8080-exec-3] WARN  p.e.u.a.securities.JwtRequestFilter - JWT Token no inicia con la palabra Bearer
+2026-04-04 17:43:34.860 [http-nio-8080-exec-3] INFO  p.e.u.a.c.JwtAuthenticationController - === INTENTO DE LOGIN ===
+2026-04-04 17:43:34.860 [http-nio-8080-exec-3] INFO  p.e.u.a.c.JwtAuthenticationController - IP Cliente: 0:0:0:0:0:0:0:1
+2026-04-04 17:43:34.860 [http-nio-8080-exec-3] INFO  p.e.u.a.c.JwtAuthenticationController - Username: Paco
+2026-04-04 17:43:34.938 [http-nio-8080-exec-3] INFO  p.e.u.a.c.JwtAuthenticationController - ✅ LOGIN EXITOSO - Usuario: Paco desde IP: 0:0:0:0:0:0:0:1
+2026-04-04 17:43:56.877 [http-nio-8080-exec-5] WARN  p.e.u.a.securities.JwtRequestFilter - JWT Token no inicia con la palabra Bearer
+2026-04-04 17:43:56.883 [http-nio-8080-exec-5] INFO  p.e.u.a.c.JwtAuthenticationController - === INTENTO DE LOGIN ===
+2026-04-04 17:43:56.883 [http-nio-8080-exec-5] INFO  p.e.u.a.c.JwtAuthenticationController - IP Cliente: 127.0.0.1
+2026-04-04 17:43:56.883 [http-nio-8080-exec-5] INFO  p.e.u.a.c.JwtAuthenticationController - Username: Paco
+2026-04-04 17:43:56.958 [http-nio-8080-exec-5] INFO  p.e.u.a.c.JwtAuthenticationController - ✅ LOGIN EXITOSO - Usuario: Paco desde IP: 127.0.0.1
+2026-04-04 17:44:21.066 [http-nio-8080-exec-6] WARN  p.e.u.a.securities.JwtRequestFilter - JWT Token no inicia con la palabra Bearer
+2026-04-04 17:44:21.068 [http-nio-8080-exec-6] INFO  p.e.u.a.c.JwtAuthenticationController - === INTENTO DE LOGIN ===
+2026-04-04 17:44:21.068 [http-nio-8080-exec-6] INFO  p.e.u.a.c.JwtAuthenticationController - IP Cliente: 127.0.0.1
+2026-04-04 17:44:21.068 [http-nio-8080-exec-6] INFO  p.e.u.a.c.JwtAuthenticationController - Username: Paco
+2026-04-04 17:44:21.143 [http-nio-8080-exec-6] INFO  p.e.u.a.c.JwtAuthenticationController - ✅ LOGIN EXITOSO - Usuario: Paco desde IP: 127.0.0.1
+2026-04-04 17:44:29.223 [http-nio-8080-exec-7] WARN  p.e.u.a.securities.JwtRequestFilter - JWT Token no inicia con la palabra Bearer
+2026-04-04 17:44:29.225 [http-nio-8080-exec-7] INFO  p.e.u.a.c.JwtAuthenticationController - === INTENTO DE LOGIN ===
+2026-04-04 17:44:29.225 [http-nio-8080-exec-7] INFO  p.e.u.a.c.JwtAuthenticationController - IP Cliente: 127.0.0.1
+2026-04-04 17:44:29.225 [http-nio-8080-exec-7] INFO  p.e.u.a.c.JwtAuthenticationController - Username: Paco
+2026-04-04 17:44:29.296 [http-nio-8080-exec-7] ERROR p.e.u.a.c.JwtAuthenticationController - ❌ ERROR EN LOGIN - Usuario: Paco desde IP: 127.0.0.1 - Error: INVALID_CREDENTIALS
+2026-04-04 17:44:41.092 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-04-04 17:44:41.095 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2026-04-04 17:44:41.101 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2026-04-04 17:44:46.262 [restartedMain] INFO  p.e.u.a.AviAplicactionApplication - Starting AviAplicactionApplication using Java 22.0.2 with PID 61554 (/home/ebervillegas/proyectosDesarrollo/AVI/AAW-Grupo6/target/classes started by ebervillegas in /home/ebervillegas/proyectosDesarrollo/AVI/AAW-Grupo6)
+2026-04-04 17:44:46.263 [restartedMain] DEBUG p.e.u.a.AviAplicactionApplication - Running with Spring Boot v3.3.3, Spring v6.1.12
+2026-04-04 17:44:46.264 [restartedMain] INFO  p.e.u.a.AviAplicactionApplication - No active profile set, falling back to 1 default profile: "default"
+2026-04-04 17:44:46.294 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-04-04 17:44:46.294 [restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-04-04 17:44:46.887 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-04 17:44:46.930 [restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 39 ms. Found 8 JPA repository interfaces.
+2026-04-04 17:44:47.338 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2026-04-04 17:44:47.347 [restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-04-04 17:44:47.347 [restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.28]
+2026-04-04 17:44:47.374 [restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-04-04 17:44:47.374 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1079 ms
+2026-04-04 17:44:47.400 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-04-04 17:44:47.602 [restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@73bd11f5
+2026-04-04 17:44:47.603 [restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-04-04 17:44:47.610 [restartedMain] INFO  o.s.b.a.h.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:postgresql://localhost/avi_db'
+2026-04-04 17:44:47.681 [restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-04 17:44:47.708 [restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.5.2.Final
+2026-04-04 17:44:47.727 [restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-04-04 17:44:47.890 [restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-04 17:44:47.915 [restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-04-04 17:44:48.488 [restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-04 17:44:48.595 [restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-04 17:44:48.722 [restartedMain] INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-04-04 17:44:49.005 [restartedMain] DEBUG p.e.u.a.securities.JwtRequestFilter - Filter 'jwtRequestFilter' configured for use
+2026-04-04 17:44:49.162 [restartedMain] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-04-04 17:44:49.267 [restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used for username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider.
+2026-04-04 17:44:49.675 [restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2026-04-04 17:44:49.698 [restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path '/'
+2026-04-04 17:44:49.704 [restartedMain] INFO  p.e.u.a.AviAplicactionApplication - Started AviAplicactionApplication in 3.739 seconds (process running for 4.224)
